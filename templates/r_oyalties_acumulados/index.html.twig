@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Royalties Acumulados{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-12" style="height: 100%">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Royalties Acumulados</h3>
+
+                        <div class="card-tools">
+                            <div class="input-group input-group-sm">
+
+                                <label style="padding-right: 10px;padding-top: 4px;">Total de Royalties
+                                    Acumulados: </label>
+                                <input type="text" class="form-control" placeholder="$ ..." disabled=""
+                                       value="{{ totalacumulado }}">
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0" style="height: 300px;">
+                        <table class="table table-head-fixed text-nowrap">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Imagen</th>
+                                <th>ID Producto</th>
+                                <th>Nombre</th>
+                                <th>Fecha</th>
+                                <th>Significado</th>
+                                <th>Dinero</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>183</td>
+                                <td>John Doe</td>
+                                <td>11-7-2014</td>
+                                <td><span class="tag tag-success">Approved</span></td>
+                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                <td>11-7-2014</td>
+                                <td>11-7-2014</td>
+                            </tr>
+                            <tr>
+                                <td>219</td>
+                                <td>Alexander Pierce</td>
+                                <td>11-7-2014</td>
+                                <td><span class="tag tag-warning">Pending</span></td>
+                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                <td>11-7-2014</td>
+                                <td>11-7-2014</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+        </div>
+    </div>
+{% endblock %}

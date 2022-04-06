@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit SolicitudPago{% endblock %}
+
+{% block body %}
+    <h1>Edit SolicitudPago</h1>
+
+    {{ include('solicitud_pago/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_solicitud_pago_index') }}">back to list</a>
+
+    {{ include('solicitud_pago/_delete_form.html.twig') }}
+{% endblock %}

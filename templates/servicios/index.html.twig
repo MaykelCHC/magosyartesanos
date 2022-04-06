@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Servicios index{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h3>Listado de Servicios</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="{{ path('app_servicios_new') }}">
+                            <button type="button" class="btn btn-block bg-gradient-success">Crear Nuevo Servicio
+                            </button>
+                        </a>
+                    </div>
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Imagen de Servicio</th>
+                            <th>Beneficio por Venta</th>
+                            <th>Tipo de Moneda</th>
+                            <th>I.V.A.</th>
+                            <th>Concepto</th>
+                            <th>Descripci&oacute;n</th>
+                            <th>Adjuntar Documentos</th>
+                            <th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for servicio in servicios %}
+                            <tr>
+                                <td>{{ servicio.id }}</td>
+                                <td>{{ servicio.nombre }}</td>
+                                <td>{{ servicio.imagenservicio }}</td>
+                                <td>{{ servicio.beneficioxventa }}</td>
+                                <td>{{ servicio.tipomoneda }}</td>
+                                <td>{{ servicio.iva }}</td>
+                                <td>{{ servicio.concepto }}</td>
+                                <td>{{ servicio.descripcion }}</td>
+                                <td>{{ servicio.adjuntardocumentos }}</td>
+                                <td>
+                                    <a href="{{ path('app_servicios_show', {'id': servicio.id}) }}">show</a>
+                                    <a href="{{ path('app_servicios_edit', {'id': servicio.id}) }}">edit</a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="10">No se encontraron registros</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

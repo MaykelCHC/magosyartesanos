@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SolicitudPago index{% endblock %}
+
+{% block body %}
+    <h1>SolicitudPago index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fechasolicitud</th>
+                <th>Totalroyaltiesacumulados</th>
+                <th>Royaltiesxpagar</th>
+                <th>Metododepago</th>
+                <th>Estado</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for solicitud_pago in solicitud_pagos %}
+            <tr>
+                <td>{{ solicitud_pago.id }}</td>
+                <td>{{ solicitud_pago.fechasolicitud }}</td>
+                <td>{{ solicitud_pago.totalroyaltiesacumulados }}</td>
+                <td>{{ solicitud_pago.royaltiesxpagar }}</td>
+                <td>{{ solicitud_pago.metododepago }}</td>
+                <td>{{ solicitud_pago.estado }}</td>
+                <td>
+                    <a href="{{ path('app_solicitud_pago_show', {'id': solicitud_pago.id}) }}">show</a>
+                    <a href="{{ path('app_solicitud_pago_edit', {'id': solicitud_pago.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_solicitud_pago_new') }}">Create new</a>
+{% endblock %}

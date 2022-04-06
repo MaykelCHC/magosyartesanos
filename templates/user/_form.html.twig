@@ -1,0 +1,128 @@
+{{ form_start(form, {'attr': {'id':'form_newusuario'}}) }}
+<form role="form" action="{{ path('app_user_new') }}">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="col-sm-5">
+                <div class="form-group">
+                    <div class="text-danger">
+                        {{ form_errors(form) }}
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            {{ form_widget(form.nombre) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            {{ form_widget(form.empresa) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            {{ form_widget(form.direccion) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            {{ form_widget(form.poblacion) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            {{ form_widget(form.pais) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            {{ form_widget(form.email) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="form-group">
+                    {{ form_widget(form.emitefactura) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="col-sm-5">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            {{ form_widget(form.apellidos) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            {{ form_widget(form.nif) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend" style="margin-top: 55px">
+                            {{ form_widget(form.provincia) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            {{ form_widget(form.telefono) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            {{ form_widget(form.password) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="form-group">
+                    {{ form_widget(form.roles) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary" style="float: left;"> Guardar</button>
+
+        <a class="btn btn-danger" style="float: right" href="{{ path('app_user_index') }}"> Cancelar</a>
+    </div>
+    {{ form_row(form._token) }}
+</form>
+{{ form_end(form) }}

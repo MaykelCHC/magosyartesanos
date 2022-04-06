@@ -1,0 +1,177 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ventas{% endblock %}
+
+{% block pagescript %}
+    <script>
+        $(function () {
+            //Date range picker
+            $('#reservationdate').datetimepicker({
+                format: 'L'
+            });
+            //Date range picker
+            $('#reservation').daterangepicker()
+            //Date range picker with time picker
+            $('#reservationtime').daterangepicker({
+                timePicker: true,
+                timePickerIncrement: 30,
+                locale: {
+                    format: 'MM/DD/YYYY hh:mm A'
+                }
+            })
+            //Date range as a button
+            $('#daterange-btn').daterangepicker(
+                {
+                    ranges: {
+                        'Today': [moment(), moment()],
+                        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                        'This Month': [moment().startOf('month'), moment().endOf('month')],
+                        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                    },
+                    startDate: moment().subtract(29, 'days'),
+                    endDate: moment()
+                },
+                function (start, end) {
+                    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+                }
+            )
+
+        })
+    </script>
+{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-12" style="height: 100%">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Mis Ventas</h3>
+                    </div>
+
+                    <div class="row card-header" style="padding-left: 30px;padding-right: 30px">
+                        <div class="input-group">
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-block btn-outline-primary">Ventas Diarias
+                                </button>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-block btn-outline-primary"
+                                        >Ventas Semanales
+                                </button>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-block btn-outline-primary"
+                                        >Ventas Mensuales
+                                </button>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-block btn-outline-primary"
+                                        style="font-size: 14px;" data-toggle="modal" data-target="#modal-primary">
+                                    Filtrar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0" style="height: 300px;">
+                        <table class="table table-head-fixed text-nowrap">
+                            <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>I.D.</th>
+                                <th>Nombre</th>
+                                <th>Total de Ventas</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>183</td>
+                                <td>11-7-2014</td>
+                                <td>John Doe</td>
+                                <td><span class="tag tag-success">Approved</span></td>
+                            </tr>
+                            <tr>
+                                <td>219</td>
+                                <td>Alexander Pierce</td>
+                                <td>11-7-2014</td>
+                                <td><span class="tag tag-warning">Pending</span></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal-primary" style="display: none; padding-right: 17px;" aria-modal="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-primary">
+                <div class="modal-header">
+                    <h4 class="modal-title">Filtrar Datos</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                               <span class="input-group-text">
+                                                 <i class="far fa-calendar-alt"></i>
+                                               </span>
+                                </div>
+                                <input type="text" class="form-control float-right" id="reservation"
+                                       placeholder="Rango de Fechas">
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3" style="margin-left: 7px;">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default">ASC</button>
+                                <button type="button"
+                                        class="btn btn-default dropdown-toggle dropdown-hover dropdown-icon"
+                                        data-toggle="dropdown">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                    <div class="dropdown-menu" role="menu">
+                                        <a class="dropdown-item" href="#">DESC</a>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default">10</button>
+                                <button type="button"
+                                        class="btn btn-default dropdown-toggle dropdown-hover dropdown-icon"
+                                        data-toggle="dropdown">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                    <div class="dropdown-menu" role="menu">
+                                        <a class="dropdown-item" href="#">15</a>
+                                        <a class="dropdown-item" href="#">25</a>
+                                        <a class="dropdown-item" href="#">50</a>
+                                        <a class="dropdown-item" href="#">100</a>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-outline-light">Aceptar</button>
+                    <button type="button" class="btn btn-outline-light" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Datos de Cuenta{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h3>Informaci&oacute;n de la cuenta de {{ user.nombre }}</h3>
+                        </div>
+                    </div>
+
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th>Nombre</th>
+                            <td>{{ user.nombre }}</td>
+                        </tr>
+                        <tr>
+                            <th>Apellidos</th>
+                            <td>{{ user.apellidos }}</td>
+                        </tr>
+                        <tr>
+                            <th>Empresa</th>
+                            <td>{{ user.empresa }}</td>
+                        </tr>
+                        <tr>
+                            <th>NIF/CIF</th>
+                            <td>{{ user.nif }}</td>
+                        </tr>
+                        <tr>
+                            <th>Direcci&oacute;n</th>
+                            <td>{{ user.direccion }}</td>
+                        </tr>
+                        <tr>
+                            <th>Poblaci&oacute;n</th>
+                            <td>{{ user.poblacion }}</td>
+                        </tr>
+                        <tr>
+                            <th>Provincia</th>
+                            <td>{{ user.provincia }}</td>
+                        </tr>
+                        <tr>
+                            <th>Pa&iacute;s</th>
+                            <td>{{ user.pais }}</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>{{ user.email }}</td>
+                        </tr>
+                        <tr>
+                            <th>Roles</th>
+                            <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Password</th>
+                            <td>{{ user.password }}</td>
+                        </tr>
+                        <tr>
+                            <th>Tel&eacute;fono</th>
+                            <td>{{ user.telefono }}</td>
+                        </tr>
+                        <tr>
+                            <th>Emite Factura</th>
+                            <td>{{ user.emitefactura ? 'Yes' : 'No' }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div style="padding: 20px">
+                        <a class="btn btn-danger" style="float: left" href="{{ path('app_user_index') }}">Regresar</a>
+
+                        <a class="btn btn-success" style="float: right"
+                           href="{{ path('app_user_edit', {'id': user.id}) }}">Editar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formas de Pago{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h3>Listado de Formas de Pago</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="{{ path('app_producto_new') }}">
+                            <button type="button" class="btn btn-block bg-gradient-success">Crear Nueva Formar de Pago
+                            </button>
+                        </a>
+                    </div>
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>M&eacute;todo de Pago</th>
+                            <th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for formade_pago in formade_pagos %}
+                            <tr>
+                                <td>{{ formade_pago.id }}</td>
+                                <td>{{ formade_pago.metodopago }}</td>
+                                <td>
+                                    <a href="{{ path('app_formade_pago_show', {'id': formade_pago.id}) }}">show</a>
+                                    <a href="{{ path('app_formade_pago_edit', {'id': formade_pago.id}) }}">edit</a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="3">No se encontraron registros</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

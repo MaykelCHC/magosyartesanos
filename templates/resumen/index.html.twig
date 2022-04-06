@@ -1,0 +1,249 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Resumen{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">Resumen</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item">Inicio</li>
+                            <li class="breadcrumb-item active">Resumen</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- Info boxes -->
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text">Total Usuarios</span>
+                                <span class="info-box-number">{{ totalu }}</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <div class="info-box mb-3">
+                                    <span class="info-box-icon bg-danger elevation-1"><i
+                                                class="fas fa-list"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text">Total Productos</span>
+                                <span class="info-box-number">{{ totalp }}</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+
+                    <!-- fix for small devices only -->
+                    <div class="clearfix hidden-md-up"></div>
+
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <div class="info-box mb-3">
+                                    <span class="info-box-icon bg-success elevation-1"><i
+                                                class="fas fa-shopping-cart"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text">Total de Ventas</span>
+                                <span class="info-box-number">{{ totalv }}</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <div class="info-box mb-3">
+                                    <span class="info-box-icon bg-warning elevation-1"><i
+                                                class="fas fa-server"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text">Total de Servicios</span>
+                                <span class="info-box-number">{{ totals }}</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+                <!-- Main row -->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- USERS LIST -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Nuevos Usuarios</h3>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool"
+                                            data-card-widget="collapse"><i class="fas fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-tool"
+                                            data-card-widget="remove"><i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body p-0">
+                                <ul class="users-list clearfix">
+                                    {% for user in users %}
+                                        <li>
+                                            <img src="{{ asset('dist/img/usuarioanonimo.png') }}"
+                                                 alt="User Image" width="80" height="80">
+                                            <a class="users-list-name" href="#">{{ user.nombre }}</a>
+                                            <span class="users-list-date">{{ fecha }}</span>
+                                        </li>
+                                    {% else %}
+                                        <li>
+                                            <span>No se encontraron registros</span>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                                <!-- /.users-list -->
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer text-center">
+                                <a href="{{ path('app_user_index') }}">Ver Todos los Usuarios</a>
+                            </div>
+                            <!-- /.card-footer -->
+                        </div>
+                        <!--/.card -->
+                    </div>
+                    <!-- /.col -->
+
+                    <!-- TABLE: LATEST ORDERS -->
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header border-transparent">
+                                <h3 class="card-title">&Uacute;ltimas Ventas</h3>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table m-0">
+                                        <thead>
+                                        <tr>
+                                            <th>ID Orden</th>
+                                            <th>Producto</th>
+                                            <th>Estado</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for ventas in ventastotal %}
+                                            <tr>
+                                                <td><a href="#">{{ ventas.id }}</a></td>
+                                                <td>Call of Duty IV</td>
+                                                <td><span class="badge badge-success">Shipped</span></td>
+                                            </tr>
+                                        {% else %}
+                                            <tr>
+                                                <td colspan="7">No se encontraron registros</td>
+                                            </tr>
+                                        {% endfor %}
+                                        {% for ventas in ventasptotal %}
+                                            <tr>
+                                                <td><a href="#">{{ ventas.id }}</a></td>
+                                                <td>{{ ventas.nombre }}</td>
+                                                <td><span class="badge badge-success">Shipped</span></td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.table-responsive -->
+                            </div>
+
+                            <!-- /.card-footer -->
+                        </div>
+                    </div>
+                    <!-- /.card -->
+
+                    <div class="col-md-12">
+                        <!-- PRODUCT LIST -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Productos Adicionados Recientemente</h3>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body p-0">
+                                <ul class="products-list product-list-in-card pl-2 pr-2">
+                                    {% for ventas in ultimosproductos %}
+                                        <li class="item">
+                                            <div class="product-img">
+                                                <img src="{{ ventas.imagen }}"
+                                                     alt="Product Image"
+                                                     class="img-size-50">
+                                            </div>
+                                            <div class="product-info">
+                                                <a href="#" class="product-title">{{ ventas.nombre }}
+                                                    <span class="badge badge-warning float-right">{{ ventas.beneficiosxventa }}</span></a>
+
+                                            </div>
+                                        </li>
+                                    {% else %}
+                                        <li>
+                                            <span>No se encontraron registros</span>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer text-center">
+                                <a href="{{ path('app_producto_index') }}" class="uppercase">Ver Todos los
+                                    Productos</a>
+                            </div>
+                            <!-- /.card-footer -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!--/. container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+{% endblock %}

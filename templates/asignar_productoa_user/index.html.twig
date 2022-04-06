@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Asignar Producto a Usuario{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h3>Asignar Producto a Usuario</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="{{ path('app_asignar_productoa_user_new') }}">
+                            <button type="button" class="btn btn-block bg-gradient-success">Crear Nueva Asignaci&oacute;n
+                            </button>
+                        </a>
+                    </div>
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Usuario</th>
+                            <th>Producto</th>
+                            <th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for asignar_productoa_user in asignar_productoa_users %}
+                            <tr>
+                                <td>{{ asignar_productoa_user.id }}</td>
+                                <td>{{ asignar_productoa_user.usuario }}</td>
+                                <td>{{ asignar_productoa_user.producto }}</td>
+                                <td>
+                                    <a href="{{ path('app_asignar_productoa_user_show', {'id': asignar_productoa_user.id}) }}">show</a>
+                                    <a href="{{ path('app_asignar_productoa_user_edit', {'id': asignar_productoa_user.id}) }}">edit</a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="4">No se encontraron registros</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

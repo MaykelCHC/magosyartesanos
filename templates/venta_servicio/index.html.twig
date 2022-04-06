@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Venta por Servicio{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h3>Venta por Servicio</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="{{ path('app_venta_servicio_new') }}">
+                            <button type="button" class="btn btn-block bg-gradient-success">Crear Nueva Venta
+                            </button>
+                        </a>
+                    </div>
+
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Fecha Venta</th>
+                            <th>Concepto</th>
+                            <th>Valor</th>
+                            <th>Royalties Comisi&oacute;n</th>
+                            <th>Adjuntar Documento</th>
+                            <th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for venta_servicio in venta_servicios %}
+                            <tr>
+                                <td>{{ venta_servicio.id }}</td>
+                                <td>{{ venta_servicio.fechaventaserv }}</td>
+                                <td>{{ venta_servicio.concepto }}</td>
+                                <td>{{ venta_servicio.valor }}</td>
+                                <td>{{ venta_servicio.royaltiescomision }}</td>
+                                <td>{{ venta_servicio.adjuntardocumento }}</td>
+                                <td>
+                                    <a href="{{ path('app_venta_servicio_show', {'id': venta_servicio.id}) }}">show</a>
+                                    <a href="{{ path('app_venta_servicio_edit', {'id': venta_servicio.id}) }}">edit</a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="7">No se encontraron registros</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

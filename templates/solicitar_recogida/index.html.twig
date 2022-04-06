@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Solicitar de Recogida{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h3>Solicitudes de Recogida</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="{{ path('app_solicitar_recogida_new') }}">
+                            <button type="button" class="btn btn-block bg-gradient-success">Crear Solicitud de
+                                Recogida
+                            </button>
+                        </a>
+                    </div>
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre de Empresa</th>
+                            <th>Fecha de Recogida</th>
+                            <th>Hora de Recogida</th>
+                            <th>Numero de Env&iacute;o</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for solicitar_recogida in solicitar_recogidas %}
+                            <tr>
+                                <td>{{ solicitar_recogida.id }}</td>
+                                <td>{{ solicitar_recogida.nombreempresa }}</td>
+                                <td>{{ solicitar_recogida.fecharecogida }}</td>
+                                <td>{{ solicitar_recogida.horarecogida }}</td>
+                                <td>{{ solicitar_recogida.numeroenvio }}</td>
+                                <td>{{ solicitar_recogida.estado }}</td>
+                                <td>
+                                    <a href="{{ path('app_solicitar_recogida_show', {'id': solicitar_recogida.id}) }}">show</a>
+                                    <a href="{{ path('app_solicitar_recogida_edit', {'id': solicitar_recogida.id}) }}">edit</a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="7">No se encontraron registros</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New SolicitudPago{% endblock %}
+
+{% block body %}
+    <h1>Create new SolicitudPago</h1>
+
+    {{ include('solicitud_pago/_form.html.twig') }}
+
+    <a href="{{ path('app_solicitud_pago_index') }}">back to list</a>
+{% endblock %}

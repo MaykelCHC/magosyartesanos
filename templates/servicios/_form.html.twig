@@ -1,0 +1,104 @@
+{{ form_start(form, {'attr': {'id':'form_newservicio'}}) }}
+<form role="form" action="{{ path('app_servicios_new') }}">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <div class="text-danger">
+                        {{ form_errors(form) }}
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            {{ form_widget(form.nombre) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <!-- <label for="customFile">Custom File</label> -->
+                    <div class="custom-file">
+                        {{ form_widget(form.imagen) }}
+                        <label class="custom-file-label" for="producto_imagen">Adjuntar Imagen del Servicio</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                {{ form_widget(form.beneficioxventa) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                {{ form_widget(form.tipomoneda) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <label>I.V.A.</label>
+                                {{ form_widget(form.iva) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <input type="text" name="nuevo" class="form-control" placeholder="Ingresar I.V.A.">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            {{ form_widget(form.concepto) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            {{ form_widget(form.descripcion) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <!-- <label for="customFile">Custom File</label> -->
+                    <div class="custom-file">
+                        {{ form_widget(form.adjuntardocumentos) }}
+                        <label class="custom-file-label" for="producto_imagen">Adjuntar</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary" style="float: left;"> Guardar</button>
+        <a class="btn btn-danger" href="{{ path('app_login') }}"> Cancelar</a>
+        <a class="btn btn-success" href="{{ path('app_login') }}"> Imagen</a>
+        <a class="btn btn-info" href="{{ path('app_login') }}"> Documentos</a>
+    </div>
+    {{ form_row(form._token) }}
+</form>
+{{ form_end(form) }}

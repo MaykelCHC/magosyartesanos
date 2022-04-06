@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ranking de Usuarios{% endblock %}
+
+{% block pagescript %}
+    <script>
+        function cargarbuscar() {
+            var act_docente = document.getElementById('custId').value;
+            / Creamos variable que almacenara el ID a borrar
+            var inputfocused = "";
+
+            // Le añadimos función de borrar al botón
+            document.getElementById("clearbutton").onclick = limpiaCampo;
+
+            // En este caso concreto seleccionamos todos los input text y password
+            // para una selección más precisa se puede usa una clase
+            // para una selección más general, se puede usar solo 'input'
+            var elements = document.querySelectorAll("input[type='text']");
+
+            // Por cada input field le añadimos una funcion 'onFocus'
+            for (var i = 0; i < 1; i++) {
+                elements[i].addEventListener("focus", function () {
+                    // Guardamos la ID del elemento al que hacemos 'focus'
+                    inputfocused = this;
+                });
+            }
+
+            function limpiaCampo() {
+                //Utilizamos el elemento al que hacemos focus para borrar el campo.
+                inputfocused.value = "";
+            }
+
+            $.ajax({
+                data: {'usuarios': act_docente},
+                dataType: 'json',
+                type: 'POST',
+                url: '../ranking_buscar'
+            }).done(function (data) {
+
+            });
+        }
+    </script>
+{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-12" style="height: 100%">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Ranking de Usuarios</h3>
+
+                        <div class="card-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="table_search" id="custId" class="form-control float-right"
+                                       placeholder="Buscar">
+
+                                <div class="input-group-append">
+                                    <button type="button" id="clearbutton" onclick="cargarbuscar()"
+                                            class="btn btn-default"><i
+                                                class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0" style="height: 300px;">
+                        <table class="table table-head-fixed text-nowrap">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Apellidos</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            {% for user in users %}
+                                <tr>
+                                    <td>{{ user.id }}</td>
+                                    <td>{{ user.nombre }}</td>
+                                    <td>{{ user.apellidos }}</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="3">No se encontraron registros</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+        </div>
+    </div>
+{% endblock %}

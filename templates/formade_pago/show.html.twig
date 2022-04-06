@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FormadePago{% endblock %}
+
+{% block body %}
+    <h1>FormadePago</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ formade_pago.id }}</td>
+            </tr>
+            <tr>
+                <th>Metodopago</th>
+                <td>{{ formade_pago.metodopago }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_formade_pago_index') }}">back to list</a>
+
+    <a href="{{ path('app_formade_pago_edit', {'id': formade_pago.id}) }}">edit</a>
+
+    {{ include('formade_pago/_delete_form.html.twig') }}
+{% endblock %}

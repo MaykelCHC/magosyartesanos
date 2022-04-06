@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}VentaProducto{% endblock %}
+
+{% block body %}
+    <h1>VentaProducto</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ venta_producto.id }}</td>
+            </tr>
+            <tr>
+                <th>Fechadeventa</th>
+                <td>{{ venta_producto.fechadeventa }}</td>
+            </tr>
+            <tr>
+                <th>Codigoventa</th>
+                <td>{{ venta_producto.codigoventa }}</td>
+            </tr>
+            <tr>
+                <th>Valorxventa</th>
+                <td>{{ venta_producto.valorxventa }}</td>
+            </tr>
+            <tr>
+                <th>Royaltie</th>
+                <td>{{ venta_producto.royaltie }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_venta_producto_index') }}">back to list</a>
+
+    <a href="{{ path('app_venta_producto_edit', {'id': venta_producto.id}) }}">edit</a>
+
+    {{ include('venta_producto/_delete_form.html.twig') }}
+{% endblock %}

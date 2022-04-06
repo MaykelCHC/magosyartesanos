@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit VentaServicio{% endblock %}
+
+{% block body %}
+    <h1>Edit VentaServicio</h1>
+
+    {{ include('venta_servicio/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_venta_servicio_index') }}">back to list</a>
+
+    {{ include('venta_servicio/_delete_form.html.twig') }}
+{% endblock %}

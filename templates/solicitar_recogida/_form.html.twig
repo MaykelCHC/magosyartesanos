@@ -1,0 +1,64 @@
+{{ form_start(form, {'attr': {'id':'form_newrecogida'}}) }}
+<form role="form" action="{{ path('app_solicitar_recogida_new') }}">
+    <div class="row">
+
+        <div class="form-group">
+            <div class="text-danger">
+                {{ form_errors(form) }}
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    {{ form_widget(form.nombreempresa) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                {{ form_widget(form.fecharecogida) }}
+                <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="bootstrap-timepicker">
+            <div class="form-group">
+                <div class="input-group date" id="timepicker" data-target-input="nearest">
+                    {{ form_widget(form.horarecogida) }}
+                    <div class="input-group-append" data-target="#timepicker" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="far fa-clock"></i></div>
+                    </div>
+                </div>
+                <!-- /.input group -->
+            </div>
+            <!-- /.form group -->
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        {{ form_widget(form.numeroenvio) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    {{ form_widget(form.estado) }}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary" style="float: left;"> Solicitar</button>
+        <a class="btn btn-danger" style="float: right" href="{{ path('app_solicitar_recogida_index') }}"> Cancelar</a>
+    </div>
+    {{ form_row(form._token) }}
+</form>
+{{ form_end(form) }}
+
+
+

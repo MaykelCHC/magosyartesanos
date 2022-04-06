@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SolicitarRecogida{% endblock %}
+
+{% block body %}
+    <h1>SolicitarRecogida</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ solicitar_recogida.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombreempresa</th>
+                <td>{{ solicitar_recogida.nombreempresa }}</td>
+            </tr>
+            <tr>
+                <th>Fecharecogida</th>
+                <td>{{ solicitar_recogida.fecharecogida }}</td>
+            </tr>
+            <tr>
+                <th>Horarecogida</th>
+                <td>{{ solicitar_recogida.horarecogida }}</td>
+            </tr>
+            <tr>
+                <th>Numeroenvio</th>
+                <td>{{ solicitar_recogida.numeroenvio }}</td>
+            </tr>
+            <tr>
+                <th>Estado</th>
+                <td>{{ solicitar_recogida.estado }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_solicitar_recogida_index') }}">back to list</a>
+
+    <a href="{{ path('app_solicitar_recogida_edit', {'id': solicitar_recogida.id}) }}">edit</a>
+
+    {{ include('solicitar_recogida/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Venta por Producto{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h3>Venta por Producto</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="{{ path('app_venta_producto_new') }}">
+                            <button type="button" class="btn btn-block bg-gradient-success">Crear Nueva Venta
+                            </button>
+                        </a>
+                    </div>
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Fecha de venta</th>
+                            <th>Codigo venta</th>
+                            <th>Valor por Venta</th>
+                            <th>Royalties</th>
+                            <th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for venta_producto in venta_productos %}
+                            <tr>
+                                <td>{{ venta_producto.id }}</td>
+                                <td>{{ venta_producto.fechadeventa }}</td>
+                                <td>{{ venta_producto.codigoventa }}</td>
+                                <td>{{ venta_producto.valorxventa }}</td>
+                                <td>{{ venta_producto.royaltie }}</td>
+                                <td>
+                                    <a href="{{ path('app_venta_producto_show', {'id': venta_producto.id}) }}">show</a>
+                                    <a href="{{ path('app_venta_producto_edit', {'id': venta_producto.id}) }}">edit</a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="6">No se encontraron registros</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
