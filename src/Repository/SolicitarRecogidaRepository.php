@@ -9,6 +9,11 @@ use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
+<<<<<<< Updated upstream
+=======
+ * @extends ServiceEntityRepository<SolicitarRecogida>
+ *
+>>>>>>> Stashed changes
  * @method SolicitarRecogida|null find($id, $lockMode = null, $lockVersion = null)
  * @method SolicitarRecogida|null findOneBy(array $criteria, array $orderBy = null)
  * @method SolicitarRecogida[]    findAll()

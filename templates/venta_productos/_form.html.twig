@@ -1,0 +1,61 @@
+{{ form_start(form, {'attr': {'id':'form_newventaproducto'}}) }}
+<form role="form" action="{{ path('app_venta_productos_new') }}">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <div class="text-danger">
+                    {{ form_errors(form) }}
+                </div>
+                <div class="input-group">
+                    <div class="input-group date" data-target-input="nearest">
+                        {{ form_widget(form.fecha) }}
+                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                {{ form_widget(form.codigo) }}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="input-group">
+                    {{ form_widget(form.valordeVenta) }}
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-right: 5px;padding-left: 10px">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="input-group">
+                        {{ form_widget(form.listadoproducto) }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <select id="usuarios" name="usuarios" class="form-control" style="width: 120px;">
+                        <option value="" disabled selected hidden> Usuarios</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <select id="royaltie" name="royaltie" class="form-control" style="width: 120px;">
+                        <option value="" disabled selected hidden> Royalties</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary" style="float: left;"> Guardar</button>
+        <a class="btn btn-danger" style="float: right" href="{{ path('app_venta_productos_index') }}"> Cancelar</a>
+    </div>
+    {{ form_row(form._token) }}
+</form>
+{{ form_end(form) }}

@@ -9,6 +9,11 @@ use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
+<<<<<<< Updated upstream
+=======
+ * @extends ServiceEntityRepository<Paypal>
+ *
+>>>>>>> Stashed changes
  * @method Paypal|null find($id, $lockMode = null, $lockVersion = null)
  * @method Paypal|null findOneBy(array $criteria, array $orderBy = null)
  * @method Paypal[]    findAll()

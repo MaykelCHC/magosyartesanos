@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Metodo de Pago{% endblock %}
+
+{% block page %}
+    <div class="content-wrapper" style="min-height: 1517.4px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Listado de M&eacute;todos de Pago</h1>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="row" style="margin-left: 250px">
+                        <a href="{{ path('app_paypal_index') }}"><img height="200" width="200" style="padding: 20px"
+                                                                      src="{{ asset('dist/img/credit/paypal.png') }}"
+                                                                      alt="Paypal"/></a>
+                        <a href="{{ path('app_transferencia_bancaria_index') }}"><img height="200" width="200"
+                                                                                      style="padding: 20px"
+                                                                                      src="{{ asset('dist/img/credit/transferenciaban.png') }}"
+                                                                                      alt="Transferencia Bancaria"/></a>
+                        <a href="{{ path('app_bizum_index') }}"> <img height="200" width="200"
+                                                                      src="{{ asset('dist/img/credit/bizum.png') }}"
+                                                                      alt="Bizum"/></a>
+                    </div>
+                    <div class="row" style="margin-left: 250px">
+                        <a href="{{ path('app_westerunion_index') }}"><img height="200" width="200"
+                                                                           style="padding: 20px"
+                                                                           src="{{ asset('dist/img/credit/westerunion.png') }}"
+                                                                           alt="Westerunion"/></a>
+                        <a href="#"><img height="200" width="200" style="padding: 20px"
+                                         src="{{ asset('dist/img/credit/bouchervale.jpg') }}"
+                                         alt="Vale descuento en Tienda"/></a>
+                        <a href="#"><img height="200" width="200"
+                                         src="{{ asset('dist/img/credit/efectivotienda.png') }}"
+                                         alt="Efectivo en Tienda"/></a>
+                    </div>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+        </section>
+        <!-- /.content -->
+    </div>
+{% endblock %}

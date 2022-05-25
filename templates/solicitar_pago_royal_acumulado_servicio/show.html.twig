@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SolicitarPagoRoyalAcumuladoServicio{% endblock %}
+
+{% block body %}
+    <h1>SolicitarPagoRoyalAcumuladoServicio</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ solicitar_pago_royal_acumulado_servicio.id }}</td>
+            </tr>
+            <tr>
+                <th>Fecha</th>
+                <td>{{ solicitar_pago_royal_acumulado_servicio.fecha ? solicitar_pago_royal_acumulado_servicio.fecha|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Rayaltieacum</th>
+                <td>{{ solicitar_pago_royal_acumulado_servicio.rayaltieacum }}</td>
+            </tr>
+            <tr>
+                <th>Royaltiepagado</th>
+                <td>{{ solicitar_pago_royal_acumulado_servicio.royaltiepagado }}</td>
+            </tr>
+            <tr>
+                <th>Saldoroyaltie</th>
+                <td>{{ solicitar_pago_royal_acumulado_servicio.saldoroyaltie }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_solicitar_pago_royal_acumulado_servicio_index') }}">back to list</a>
+
+    <a href="{{ path('app_solicitar_pago_royal_acumulado_servicio_edit', {'id': solicitar_pago_royal_acumulado_servicio.id}) }}">edit</a>
+
+    {{ include('solicitar_pago_royal_acumulado_servicio/_delete_form.html.twig') }}
+{% endblock %}

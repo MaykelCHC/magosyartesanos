@@ -1,7 +1,10 @@
 {{ form_start(form, {'attr': {'id':'form_newproducto'}}) }}
 <form role="form" action="{{ path('app_producto_new') }}">
     <div class="row">
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
         <div class="col-sm-12">
             <div class="form-group">
                 <div class="text-danger">
@@ -23,6 +26,7 @@
                 </div>
             </div>
         </div>
+<<<<<<< Updated upstream
         <div class="row" style="margin-left: 0;">
             <div class="col-sm-7">
                 <div class="form-group">
@@ -35,10 +39,39 @@
                 <div class="form-group">
                     <div class="form-check">
                         {{ form_widget(form.tipomoneda) }}
+=======
+
+        <div class="col-sm-8">
+            <div class="form-group">
+                <div class="input-group">
+                    {{ form_widget(form.beneficioxventa) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="form-check">
+                    <div id="producto_tipodemoneda">
+                        <div class="row" style="padding-top: 5px;">
+                            <div class="form-check">
+                                <input id="producto_tipodemoneda_0" class="form-check-input" value="dolar" type="radio"
+                                       required="required" name="producto[tipodemoneda]">
+                                <label class="required form-check-label" for="producto_tipodemoneda_0"
+                                       style="padding-right: 10px;">USD</label>
+                            </div>
+                            <div class="form-check">
+                                <input id="producto_tipodemoneda_1" class="form-check-input" value="euro" type="radio"
+                                       required="required" name="producto[tipodemoneda]" checked="">
+                                <label class="required form-check-label" for="producto_tipodemoneda_1">EUR</label>
+                            </div>
+                        </div>
+>>>>>>> Stashed changes
                     </div>
                 </div>
             </div>
         </div>
+<<<<<<< Updated upstream
         <div class="row" style="margin-left: 0">
             <div class="col-sm-8">
                 <div class="form-group">
@@ -46,10 +79,44 @@
                         <div class="input-group-prepend">
                             <label>I.V.A.</label>
                             {{ form_widget(form.iva) }}
+=======
+        <div class="col-sm-8">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <label style="padding-top: 5px; padding-right: 15px">I.V.A.</label>
+                        <div id="producto_iv">
+                            <div class="row" style="padding-top: 5px;">
+                                <div class="form-check">
+                                    <input id="producto_iv_0" class="form-check-input" value="0" type="radio"
+                                           required="required" name="producto[iv]">
+                                    <label class="required form-check-label" for="producto_iv_0"
+                                           style="padding-right: 5px;">0%</label>
+                                </div>
+                                <div class="form-check">
+                                    <input id="producto_iv_1" class="form-check-input" value="4" type="radio"
+                                           required="required" name="producto[iv]" checked="">
+                                    <label class="required form-check-label" for="producto_iv_1"
+                                           style="padding-right: 5px;">4%</label>
+                                </div>
+                                <div class="form-check">
+                                    <input id="producto_iv_2" class="form-check-input" value="21" type="radio"
+                                           required="required" name="producto[iv]" checked="">
+                                    <label class="required form-check-label" for="producto_iv_2"
+                                           style="padding-right: 5px;">21%</label>
+                                </div>
+                                <div class="form-check">
+                                    <input id="producto_iv_3" class="form-check-input" value="otro" type="radio"
+                                           required="required" name="producto[iv]" checked="">
+                                    <label class="required form-check-label" for="producto_iv_3">Otro</label>
+                                </div>
+                            </div>
+>>>>>>> Stashed changes
                         </div>
                     </div>
                 </div>
             </div>
+<<<<<<< Updated upstream
             <div class="col-sm-4">
                 <div class="form-group">
                     <div class="input-group">
@@ -60,6 +127,17 @@
                 </div>
             </div>
         </div>
+=======
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" name="nuevo" class="form-control" placeholder="Ingresar I.V.A.">
+                </div>
+            </div>
+        </div>
+
+>>>>>>> Stashed changes
         <div class="col-sm-6">
             <div class="form-group">
                 <div class="input-group">
@@ -78,11 +156,25 @@
                 </div>
             </div>
         </div>
+<<<<<<< Updated upstream
+=======
+        <div class="col-sm-12">
+            <div class="form-group">
+                <div class="input-group">
+                    {{ form_widget(form.usuarioid) }}
+                </div>
+            </div>
+        </div>
+>>>>>>> Stashed changes
 
     </div>
     <div>
         <button type="submit" class="btn btn-primary" style="float: left;"> Guardar</button>
+<<<<<<< Updated upstream
         <a class="btn btn-danger" style="float: right" href="{{ path('app_login') }}"> Cancelar</a>
+=======
+        <a class="btn btn-danger" style="float: right" href="{{ path('app_producto_index') }}"> Cancelar</a>
+>>>>>>> Stashed changes
     </div>
     {{ form_row(form._token) }}
 </form>

@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 
+<<<<<<< Updated upstream
 {% block title %}SolicitarRecogida{% endblock %}
 
 {% block body %}
@@ -39,4 +40,58 @@
     <a href="{{ path('app_solicitar_recogida_edit', {'id': solicitar_recogida.id}) }}">edit</a>
 
     {{ include('solicitar_recogida/_delete_form.html.twig') }}
+=======
+{% block title %}Solicitar Recogida{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h3>Solicitar Recogida</h3>
+                        </div>
+                    </div>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ solicitar_recogida.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Nombre</th>
+                            <td>{{ solicitar_recogida.nombre }}</td>
+                        </tr>
+                        <tr>
+                            <th>Fecha</th>
+                            <td>{{ solicitar_recogida.fecha ? solicitar_recogida.fecha|date('Y-m-d') : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Hora</th>
+                            <td>{{ solicitar_recogida.hora ? solicitar_recogida.hora|date('H:i:s') : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Numero de Envio</th>
+                            <td>{{ solicitar_recogida.numeroenvio }}</td>
+                        </tr>
+                        <tr>
+                            <th>Estado</th>
+                            <td>{{ solicitar_recogida.estado }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div style="padding: 20px">
+                        <a class="btn btn-danger" style="float: left" href="{{ path('app_solicitar_recogida_index') }}">Regresar</a>
+
+                        <a class="btn btn-success" style="float: right"
+                           href="{{ path('app_solicitar_recogida_edit', {'id': solicitar_recogida.id}) }}">Editar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+>>>>>>> Stashed changes
 {% endblock %}

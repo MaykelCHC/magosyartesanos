@@ -15,6 +15,13 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Entity'
                 prefix: 'App\Entity'
                 alias: App
+<<<<<<< Updated upstream
+=======
+        dql:
+            string_functions:
+                JSON_ARRAY: Scienta\DoctrineJsonFunctions\Query\AST\Functions\Mysql\JsonArray
+                MONTH: DoctrineExtensions\Query\Mysql\Month
+>>>>>>> Stashed changes
 
 when@test:
     doctrine:

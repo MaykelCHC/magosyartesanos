@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paypal{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h3>Paypal</h3>
+                        </div>
+                    </div>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <td>{{ paypal.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>N&uacute;mero de Cuenta</th>
+                            <td>{{ paypal.numerocuenta }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div style="padding: 20px">
+                        <a class="btn btn-danger" style="float: left" href="{{ path('app_paypal_index') }}">Regresar</a>
+
+                        <a class="btn btn-success" style="float: right"
+                           href="{{ path('app_paypal_edit', {'id': paypal.id}) }}">Editar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

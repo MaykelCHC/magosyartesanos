@@ -176,7 +176,11 @@
                                         {% for ventas in ventasptotal %}
                                             <tr>
                                                 <td><a href="#">{{ ventas.id }}</a></td>
+<<<<<<< Updated upstream
                                                 <td>{{ ventas.nombre }}</td>
+=======
+                                                <td>{{ ventas.codigo }}</td>
+>>>>>>> Stashed changes
                                                 <td><span class="badge badge-success">Shipped</span></td>
                                             </tr>
                                         {% endfor %}
@@ -212,6 +216,7 @@
                                     {% for ventas in ultimosproductos %}
                                         <li class="item">
                                             <div class="product-img">
+<<<<<<< Updated upstream
                                                 <img src="{{ ventas.imagen }}"
                                                      alt="Product Image"
                                                      class="img-size-50">
@@ -220,6 +225,15 @@
                                                 <a href="#" class="product-title">{{ ventas.nombre }}
                                                     <span class="badge badge-warning float-right">{{ ventas.beneficiosxventa }}</span></a>
 
+=======
+                                                <img src="{{ asset('uploads/' ~ ventas.imagen) }}"
+                                                     alt="Product Image"
+                                                     class="img-size-64">
+                                            </div>
+                                            <div class="product-info">
+                                                <a href="#" class="product-title">{{ ventas.nombre }}
+                                                    <span class="badge badge-warning float-right">{{ ventas.beneficioxventa }}</span></a>
+>>>>>>> Stashed changes
                                             </div>
                                         </li>
                                     {% else %}

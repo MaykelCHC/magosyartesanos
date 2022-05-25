@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listado de Servicios{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h3>Listado de Servicios</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="{{ path('app_servicio_new') }}">
+                            <button type="button" class="btn btn-block bg-gradient-success"><i
+                                        class="fa fa-user-plus"></i> Crear Nuevo Servicio
+                            </button>
+                        </a>
+                    </div>
+
+                    <table class="table">
+                        <thead class="text-center">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Imagen</th>
+                            <th>Descripcion</th>
+                            <th>Documento</th>
+                            <th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody class="text-center">
+                        {% for servicio in servicios %}
+                            <tr>
+                                <td>{{ servicio.nombre }}</td>
+                                <td><img width="50" height="50" src="{{ asset('uploads/' ~ servicio.imagen) }}"
+                                         alt="Foto Servicio"></td>
+                                <td>{{ servicio.descripcion }}</td>
+                                <td><a href="{{ asset('uploads/' ~ servicio.documento) }}" target="_blank">Ver
+                                        Documento</a>
+                                </td>
+                                <td width="180">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <a href="{{ path('app_servicio_show', {'id': servicio.id}) }}">
+                                                <button class="btn btn-block btn-info" data-toggle="tooltip"
+                                                        title="ver"><i
+                                                            class="fas fa-info"></i>
+                                                </button>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-4">
+
+                                            <a href="{{ path('app_servicio_edit', {'id': servicio.id}) }}">
+                                                <button class="btn btn-block btn-success" data-toggle="tooltip"
+                                                        title="Editar"><i
+                                                            class="fas fa-edit"></i>
+                                                </button>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <form method="post"
+                                                  action="{{ path('app_servicio_delete', {'id': servicio.id}) }}"
+                                                  onsubmit="return confirm('Está segur@ que desea eliminar este servicio?');">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="_token"
+                                                       value="{{ csrf_token('delete' ~ servicio.id) }}">
+                                                <button class="btn btn-block btn-danger" data-toggle="tooltip"
+                                                        title="Eliminar"><i
+                                                            class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="11">No se encontraron registros</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Royalties Acumulado por Servicio{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-8 col-12">
+                        <h4>Royalties Acumulados por Servicio</h4>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-sm-4 col-12 float-right">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text">Total de Royalties Acumulados</span>
+                                <span class="info-box-number">{{ ventasmensual }}</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h3>Royalties Acumulado por Servicio</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="{{ path('app_solicitar_pago_royal_acumulado_servicio_new') }}">
+                            <button type="button" class="btn btn-block bg-gradient-success"><i
+                                        class="fa fa-user-plus"></i> Nuevo Royalties Acumulado por Servicio
+                            </button>
+                        </a>
+                    </div>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Fecha</th>
+                            <th>Rayaltie Acumulado</th>
+                            <th>Royaltie Pagado</th>
+                            <th>Saldo Royaltie</th>
+                            <th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for solicitar_pago_royal_acumulado_servicio in solicitar_pago_royal_acumulado_servicios %}
+                            <tr>
+                                <td>{{ solicitar_pago_royal_acumulado_servicio.id }}</td>
+                                <td>{{ solicitar_pago_royal_acumulado_servicio.fecha ? solicitar_pago_royal_acumulado_servicio.fecha|date('Y-m-d') : '' }}</td>
+                                <td>{{ solicitar_pago_royal_acumulado_servicio.rayaltieacum }}</td>
+                                <td>{{ solicitar_pago_royal_acumulado_servicio.royaltiepagado }}</td>
+                                <td>{{ solicitar_pago_royal_acumulado_servicio.saldoroyaltie }}</td>
+                                <td width="180">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <a href="{{ path('app_solicitar_pago_royal_acumulado_servicio_show', {'id': solicitar_pago_royal_acumulado_servicio.id}) }}">
+                                                <button class="btn btn-block btn-info" data-toggle="tooltip"
+                                                        title="ver"><i
+                                                            class="fas fa-info"></i>
+                                                </button>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-4">
+
+                                            <a href="{{ path('app_solicitar_pago_royal_acumulado_servicio_edit', {'id': solicitar_pago_royal_acumulado_servicio.id}) }}">
+                                                <button class="btn btn-block btn-success" data-toggle="tooltip"
+                                                        title="Editar"><i
+                                                            class="fas fa-edit"></i>
+                                                </button>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <form method="post"
+                                                  action="{{ path('app_solicitar_pago_royal_acumulado_servicio_delete', {'id': solicitar_pago_royal_acumulado_servicio.id}) }}"
+                                                  onsubmit="return confirm('Está segur@ que desea eliminar esta solicitud?');">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="_token"
+                                                       value="{{ csrf_token('delete' ~ solicitar_pago_royal_acumulado_servicio.id) }}">
+                                                <button class="btn btn-block btn-danger" data-toggle="tooltip"
+                                                        title="Eliminar"><i
+                                                            class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="6">No se encontraron registros</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

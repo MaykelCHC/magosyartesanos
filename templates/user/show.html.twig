@@ -31,7 +31,11 @@
                         </tr>
                         <tr>
                             <th>NIF/CIF</th>
+<<<<<<< Updated upstream
                             <td>{{ user.nif }}</td>
+=======
+                            <td>{{ user.nifcif }}</td>
+>>>>>>> Stashed changes
                         </tr>
                         <tr>
                             <th>Direcci&oacute;n</th>
@@ -67,7 +71,30 @@
                         </tr>
                         <tr>
                             <th>Emite Factura</th>
+<<<<<<< Updated upstream
                             <td>{{ user.emitefactura ? 'Yes' : 'No' }}</td>
+=======
+                            <td>{{ user.emitirfactura ? 'Yes' : 'No' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Emite Factura</th>
+                            <td>{{ user.emitirfactura ? 'Yes' : 'No' }}</td>
+                        </tr>
+                        <tr>
+
+                            <th>Producto Asignado</th>
+
+                            <td class="form-group">
+                                <label>
+                                    <select multiple="" class="custom-select" disabled="">
+                                        {% for usuarioid in productos %}
+                                            <option>{{ usuarioid }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </label>
+                            </td>
+
+>>>>>>> Stashed changes
                         </tr>
                         </tbody>
                     </table>
@@ -81,5 +108,8 @@
             </div>
         </div>
     </div>
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 {% endblock %}

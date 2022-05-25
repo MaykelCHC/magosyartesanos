@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Pago Royal Acumulado{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h3>Pago Royal Acumulado</h3>
+                        </div>
+                    </div>
+
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ solicitar_pago_royal_acumulado.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Fecha</th>
+                            <td>{{ solicitar_pago_royal_acumulado.fecha ? solicitar_pago_royal_acumulado.fecha|date('Y-m-d') : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Royalties a Pagar</th>
+                            <td>{{ solicitar_pago_royal_acumulado.royaltiespagar }}</td>
+                        </tr>
+                        <tr>
+                            <th>Metodo de Pago</th>
+                            <td>{{ solicitar_pago_royal_acumulado.metododepago }}</td>
+                        </tr>
+                        <tr>
+                            <th>Estado</th>
+                            <td>{{ solicitar_pago_royal_acumulado.estado }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div style="padding: 20px">
+                        <a class="btn btn-danger" style="float: left"
+                           href="{{ path('app_solicitar_pago_royal_acumulado_index') }}">Regresar</a>
+
+                        <a class="btn btn-success" style="float: right"
+                           href="{{ path('app_solicitar_pago_royal_acumulado_edit', {'id': solicitar_pago_royal_acumulado.id}) }}">Editar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

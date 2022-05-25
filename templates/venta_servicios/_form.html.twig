@@ -1,0 +1,64 @@
+{{ form_start(form, {'attr': {'id':'form_newventaservicio'}}) }}
+<form role="form" action="{{ path('app_venta_servicios_new') }}">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <div class="text-danger">
+                    {{ form_errors(form) }}
+                </div>
+                <div class="input-group">
+                    {{ form_widget(form.fecha) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="input-group">
+                    {{ form_widget(form.comisionRoyalties) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="input-group">
+                    {{ form_widget(form.codigo) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="input-group">
+                    {{ form_widget(form.valor) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="input-group">
+                    {{ form_widget(form.usuarioid) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                {{ form_widget(form.concepto) }}
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <!-- <label for="customFile">Custom File</label> -->
+                <div class="custom-file">
+                    {{ form_widget(form.documento) }}
+                    <label class="custom-file-label" for="servicio_imagen">Adjuntar Documento del Servicio</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary" style="float: left;"> Guardar</button>
+        <a class="btn btn-danger" style="float: right" href="{{ path('app_venta_servicios_index') }}"> Cancelar</a>
+    </div>
+    {{ form_row(form._token) }}
+</form>
+{{ form_end(form) }}

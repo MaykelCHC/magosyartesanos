@@ -11,6 +11,10 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+<<<<<<< Updated upstream
+=======
+ * @ORM\Table(name="`user`")
+>>>>>>> Stashed changes
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -38,32 +42,57 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $password;
 
     /**
+<<<<<<< Updated upstream
      * @ORM\Column(type="string", length=255)
+=======
+     * @ORM\Column(type="string", length=255, nullable=true)
+>>>>>>> Stashed changes
      */
     private $nombre;
 
     /**
+<<<<<<< Updated upstream
      * @ORM\Column(type="string", length=255)
+=======
+     * @ORM\Column(type="string", length=255, nullable=true)
+>>>>>>> Stashed changes
      */
     private $apellidos;
 
     /**
+<<<<<<< Updated upstream
      * @ORM\Column(type="string", length=255)
+=======
+     * @ORM\Column(type="string", length=255, nullable=true)
+>>>>>>> Stashed changes
      */
     private $empresa;
 
     /**
+<<<<<<< Updated upstream
      * @ORM\Column(type="string", length=255)
      */
     private $nif;
 
     /**
      * @ORM\Column(type="string", length=255)
+=======
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $nifcif;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+>>>>>>> Stashed changes
      */
     private $direccion;
 
     /**
+<<<<<<< Updated upstream
      * @ORM\Column(type="string", length=255)
+=======
+     * @ORM\Column(type="string", length=255, nullable=true)
+>>>>>>> Stashed changes
      */
     private $poblacion;
 
@@ -73,16 +102,25 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $provincia;
 
     /**
+<<<<<<< Updated upstream
      * @ORM\Column(type="string", length=255)
+=======
+     * @ORM\Column(type="string", length=255, nullable=true)
+>>>>>>> Stashed changes
      */
     private $pais;
 
     /**
+<<<<<<< Updated upstream
      * @ORM\Column(type="string", length=255)
+=======
+     * @ORM\Column(type="string", length=255, nullable=true)
+>>>>>>> Stashed changes
      */
     private $telefono;
 
     /**
+<<<<<<< Updated upstream
      * @ORM\ManyToOne(targetEntity=VentaProducto::class, inversedBy="usuario")
      */
     private $ventaProducto;
@@ -116,6 +154,38 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $this->asignarProductoaUsers = new ArrayCollection();
         $this->aprobarSolicitudRecogidas = new ArrayCollection();
+=======
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $emitirfactura;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Producto::class, mappedBy="usuarioid")
+     */
+    private $product;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Servicio::class, mappedBy="usuarioid")
+     */
+    private $servicios;
+
+    /**
+     * @ORM\OneToMany(targetEntity=VentaServicios::class, mappedBy="usuarioid")
+     */
+    private $ventaServicios;
+
+    /**
+     * @ORM\OneToMany(targetEntity=SolicitarRecogida::class, mappedBy="usuarioid")
+     */
+    private $solicitarRecogidas;
+
+    public function __construct()
+    {
+        $this->product = new ArrayCollection();
+        $this->servicios = new ArrayCollection();
+        $this->ventaServicios = new ArrayCollection();
+        $this->solicitarRecogidas = new ArrayCollection();
+>>>>>>> Stashed changes
     }
 
     public function getId(): ?int
@@ -212,7 +282,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->nombre;
     }
 
+<<<<<<< Updated upstream
     public function setNombre(string $nombre): self
+=======
+    public function setNombre(?string $nombre): self
+>>>>>>> Stashed changes
     {
         $this->nombre = $nombre;
 
@@ -224,7 +298,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->apellidos;
     }
 
+<<<<<<< Updated upstream
     public function setApellidos(string $apellidos): self
+=======
+    public function setApellidos(?string $apellidos): self
+>>>>>>> Stashed changes
     {
         $this->apellidos = $apellidos;
 
@@ -236,13 +314,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->empresa;
     }
 
+<<<<<<< Updated upstream
     public function setEmpresa(string $empresa): self
+=======
+    public function setEmpresa(?string $empresa): self
+>>>>>>> Stashed changes
     {
         $this->empresa = $empresa;
 
         return $this;
     }
 
+<<<<<<< Updated upstream
     public function getNif(): ?string
     {
         return $this->nif;
@@ -251,6 +334,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setNif(string $nif): self
     {
         $this->nif = $nif;
+=======
+    public function getNifcif(): ?string
+    {
+        return $this->nifcif;
+    }
+
+    public function setNifcif(?string $nifcif): self
+    {
+        $this->nifcif = $nifcif;
+>>>>>>> Stashed changes
 
         return $this;
     }
@@ -260,7 +353,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->direccion;
     }
 
+<<<<<<< Updated upstream
     public function setDireccion(string $direccion): self
+=======
+    public function setDireccion(?string $direccion): self
+>>>>>>> Stashed changes
     {
         $this->direccion = $direccion;
 
@@ -272,7 +369,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->poblacion;
     }
 
+<<<<<<< Updated upstream
     public function setPoblacion(string $poblacion): self
+=======
+    public function setPoblacion(?string $poblacion): self
+>>>>>>> Stashed changes
     {
         $this->poblacion = $poblacion;
 
@@ -296,7 +397,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->pais;
     }
 
+<<<<<<< Updated upstream
     public function setPais(string $pais): self
+=======
+    public function setPais(?string $pais): self
+>>>>>>> Stashed changes
     {
         $this->pais = $pais;
 
@@ -308,13 +413,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->telefono;
     }
 
+<<<<<<< Updated upstream
     public function setTelefono(string $telefono): self
+=======
+    public function setTelefono(?string $telefono): self
+>>>>>>> Stashed changes
     {
         $this->telefono = $telefono;
 
         return $this;
     }
 
+<<<<<<< Updated upstream
     public function getVentaProducto(): ?VentaProducto
     {
         return $this->ventaProducto;
@@ -323,10 +433,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setVentaProducto(?VentaProducto $ventaProducto): self
     {
         $this->ventaProducto = $ventaProducto;
+=======
+    public function getEmitirfactura(): ?bool
+    {
+        return $this->emitirfactura;
+    }
+
+    public function setEmitirfactura(?bool $emitirfactura): self
+    {
+        $this->emitirfactura = $emitirfactura;
+>>>>>>> Stashed changes
 
         return $this;
     }
 
+<<<<<<< Updated upstream
     public function getVentaServicio(): ?VentaServicio
     {
         return $this->ventaServicio;
@@ -335,10 +456,27 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setVentaServicio(?VentaServicio $ventaServicio): self
     {
         $this->ventaServicio = $ventaServicio;
+=======
+    /**
+     * @return Collection<int, Producto>
+     */
+    public function getProduct(): Collection
+    {
+        return $this->product;
+    }
+
+    public function addProduct(Producto $product): self
+    {
+        if (!$this->product->contains($product)) {
+            $this->product[] = $product;
+            $product->addUsuarioid($this);
+        }
+>>>>>>> Stashed changes
 
         return $this;
     }
 
+<<<<<<< Updated upstream
     public function getLiquidarPago(): ?LiquidarPago
     {
         return $this->liquidarPago;
@@ -359,11 +497,49 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setEmitefactura(bool $emitefactura): self
     {
         $this->emitefactura = $emitefactura;
+=======
+    public function removeProduct(Producto $product): self
+    {
+        if ($this->product->removeElement($product)) {
+            $product->removeUsuarioid($this);
+        }
 
         return $this;
     }
 
     /**
+     * @return Collection<int, Servicio>
+     */
+    public function getServicios(): Collection
+    {
+        return $this->servicios;
+    }
+
+    public function addServicio(Servicio $servicio): self
+    {
+        if (!$this->servicios->contains($servicio)) {
+            $this->servicios[] = $servicio;
+            $servicio->setUsuarioid($this);
+        }
+
+        return $this;
+    }
+
+    public function removeServicio(Servicio $servicio): self
+    {
+        if ($this->servicios->removeElement($servicio)) {
+            // set the owning side to null (unless already changed)
+            if ($servicio->getUsuarioid() === $this) {
+                $servicio->setUsuarioid(null);
+            }
+        }
+>>>>>>> Stashed changes
+
+        return $this;
+    }
+
+    /**
+<<<<<<< Updated upstream
      * @return Collection<int, AsignarProductoaUser>
      */
     public function getAsignarProductoaUsers(): Collection
@@ -376,21 +552,46 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         if (!$this->asignarProductoaUsers->contains($asignarProductoaUser)) {
             $this->asignarProductoaUsers[] = $asignarProductoaUser;
             $asignarProductoaUser->addUsuario($this);
+=======
+     * @return Collection<int, VentaServicios>
+     */
+    public function getVentaServicios(): Collection
+    {
+        return $this->ventaServicios;
+    }
+
+    public function addVentaServicio(VentaServicios $ventaServicio): self
+    {
+        if (!$this->ventaServicios->contains($ventaServicio)) {
+            $this->ventaServicios[] = $ventaServicio;
+            $ventaServicio->setUsuarioid($this);
+>>>>>>> Stashed changes
         }
 
         return $this;
     }
 
+<<<<<<< Updated upstream
     public function removeAsignarProductoaUser(AsignarProductoaUser $asignarProductoaUser): self
     {
         if ($this->asignarProductoaUsers->removeElement($asignarProductoaUser)) {
             $asignarProductoaUser->removeUsuario($this);
+=======
+    public function removeVentaServicio(VentaServicios $ventaServicio): self
+    {
+        if ($this->ventaServicios->removeElement($ventaServicio)) {
+            // set the owning side to null (unless already changed)
+            if ($ventaServicio->getUsuarioid() === $this) {
+                $ventaServicio->setUsuarioid(null);
+            }
+>>>>>>> Stashed changes
         }
 
         return $this;
     }
 
     /**
+<<<<<<< Updated upstream
      * @return Collection<int, AprobarSolicitudRecogida>
      */
     public function getAprobarSolicitudRecogidas(): Collection
@@ -403,20 +604,53 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         if (!$this->aprobarSolicitudRecogidas->contains($aprobarSolicitudRecogida)) {
             $this->aprobarSolicitudRecogidas[] = $aprobarSolicitudRecogida;
             $aprobarSolicitudRecogida->setUsuario($this);
+=======
+     * @return Collection<int, SolicitarRecogida>
+     */
+    public function getSolicitarRecogidas(): Collection
+    {
+        return $this->solicitarRecogidas;
+    }
+
+    public function addSolicitarRecogida(SolicitarRecogida $solicitarRecogida): self
+    {
+        if (!$this->solicitarRecogidas->contains($solicitarRecogida)) {
+            $this->solicitarRecogidas[] = $solicitarRecogida;
+            $solicitarRecogida->setUsuarioid($this);
+>>>>>>> Stashed changes
         }
 
         return $this;
     }
 
+<<<<<<< Updated upstream
     public function removeAprobarSolicitudRecogida(AprobarSolicitudRecogida $aprobarSolicitudRecogida): self
     {
         if ($this->aprobarSolicitudRecogidas->removeElement($aprobarSolicitudRecogida)) {
             // set the owning side to null (unless already changed)
             if ($aprobarSolicitudRecogida->getUsuario() === $this) {
                 $aprobarSolicitudRecogida->setUsuario(null);
+=======
+    public function removeSolicitarRecogida(SolicitarRecogida $solicitarRecogida): self
+    {
+        if ($this->solicitarRecogidas->removeElement($solicitarRecogida)) {
+            // set the owning side to null (unless already changed)
+            if ($solicitarRecogida->getUsuarioid() === $this) {
+                $solicitarRecogida->setUsuarioid(null);
+>>>>>>> Stashed changes
             }
         }
 
         return $this;
     }
+<<<<<<< Updated upstream
+=======
+
+    public function __toString()
+    {
+        return $this->nombre;
+    }
+
+
+>>>>>>> Stashed changes
 }

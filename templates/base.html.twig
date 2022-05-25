@@ -20,6 +20,12 @@
         <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
         <!-- Theme style -->
         <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
+<<<<<<< Updated upstream
+=======
+        <!-- Toastr -->
+        <link rel="stylesheet" href="{{ asset('plugins/toastr/toastr.min.css') }}">
+
+>>>>>>> Stashed changes
 
         <!-- Google Font: Source Sans Pro -->
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
@@ -35,8 +41,19 @@
         <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
         <!-- AdminLTE App -->
         <script src="{{ asset('dist/js/adminlte.js') }}"></script>
+<<<<<<< Updated upstream
         <!-- date-range-picker -->
         <script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
+=======
+{#        <!-- date-range-picker -->#}
+{#        <script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>#}
+
+        <!-- InputMask -->
+        <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
+        <script src="{{ asset('plugins/inputmask/min/jquery.inputmask.bundle.min.js') }}"></script>
+        <!-- Tempusdominus Bootstrap 4 -->
+        <script src="{{ asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+>>>>>>> Stashed changes
 
         <!-- OPTIONAL SCRIPTS -->
         <script src="{{ asset('dist/js/demo.js') }}"></script>
@@ -50,6 +67,12 @@
         <!-- ChartJS -->
         <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
 
+<<<<<<< Updated upstream
+=======
+        <!-- Toastr -->
+        <script src="{{ asset('plugins/toastr/toastr.min.js') }}"></script>
+
+>>>>>>> Stashed changes
         <!-- PAGE SCRIPTS -->
         <script src="{{ asset('dist/js/pages/dashboard2.js') }}"></script>
         {% block pagescript %}
@@ -81,7 +104,11 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
+<<<<<<< Updated upstream
                     <a class="nav-link" data-toggle="dropdown" href="{{ path('app_logout') }}">
+=======
+                    <a class="nav-link" href="{{ path('app_logout') }}">
+>>>>>>> Stashed changes
                         <i class="fa fa-sign-out-alt"></i>
                     </a>
                 </li>
@@ -99,6 +126,7 @@
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
+<<<<<<< Updated upstream
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
                         <img src="{{ asset('dist/img/usuarioanonimo.png') }}" style="background-color: white;"
@@ -110,12 +138,29 @@
                     </div>
                 </div>
 
+=======
+                <a href="{{ path('app_bienvenido') }}">
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                        <div class="image">
+                            <img
+                                    src="{{ asset('dist/img/usuarioanonimo.png') }}"
+                                    style="background-color: white;"
+                                    class="img-circle elevation-2"
+                                    alt="User Image">
+                        </div>
+                        <div class="info">
+                            <a href="#" class="d-block">{{ app.user.nombre }}</a>
+                        </div>
+                    </div>
+                </a>
+>>>>>>> Stashed changes
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                              with font-awesome or any other icon font library -->
+<<<<<<< Updated upstream
                         {% if resumen == 1 %}
                             <li class="nav-item">
                                 <a href="{{ path('app_resumen') }}" class="nav-link active">
@@ -381,6 +426,326 @@
                                     </p>
                                 </a>
                             </li>
+=======
+                        {% if is_granted('ROLE_ADMIN') %}
+                            {% if resumen == 1 %}
+                                <li class="nav-item">
+                                    <a href="{{ path('app_resumen') }}" class="nav-link active">
+                                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                                        <p>
+                                            Resumen
+                                        </p>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="{{ path('app_resumen') }}" class="nav-link">
+                                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                                        <p>
+                                            Resumen
+                                        </p>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endif %}
+                        {% if is_granted('ROLE_ADMIN') %}
+                            {% if ranking == 1 %}
+                                <li class="nav-item">
+                                    <a href="{{ path('app_ranking_usuarios') }}" class="nav-link active">
+                                        <i class="nav-icon fas fa-star"></i>
+                                        <p>
+                                            Ranking de Usuarios
+                                        </p>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="{{ path('app_ranking_usuarios') }}" class="nav-link">
+                                        <i class="nav-icon fas fa-star"></i>
+                                        <p>
+                                            Ranking de Usuarios
+                                        </p>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endif %}
+                        {% if is_granted('ROLE_ADMIN') %}
+                            {% if historial == 1 %}
+                                <li class="nav-item">
+                                    <a href="{{ path('app_historial_pagos') }}" class="nav-link active">
+                                        <i class="nav-icon fas fa-credit-card"></i>
+                                        <p>
+                                            Historial de Pagos
+                                        </p>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="{{ path('app_historial_pagos') }}" class="nav-link">
+                                        <i class="nav-icon fas fa-credit-card"></i>
+                                        <p>
+                                            Historial de Pagos
+                                        </p>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endif %}
+                        {#                        {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %} #}
+                        {#                            {% if royalties == 1 %} #}
+                        {#                                <li class="nav-item has-treeview"> #}
+                        {#                                    <a href="{{ path('app_royalties_acumulados') }}" class="nav-link active"> #}
+                        {#                                        <i class="nav-icon fas fa-tree"></i> #}
+                        {#                                        <p> #}
+                        {#                                            Royalties Acumulados #}
+                        {#                                        </p> #}
+                        {#                                    </a> #}
+                        {#                                </li> #}
+                        {#                            {% else %} #}
+                        {#                                <li class="nav-item has-treeview"> #}
+                        {#                                    <a href="{{ path('app_royalties_acumulados') }}" class="nav-link"> #}
+                        {#                                        <i class="nav-icon fas fa-tree"></i> #}
+                        {#                                        <p> #}
+                        {#                                            Royalties Acumulados #}
+                        {#                                        </p> #}
+                        {#                                    </a> #}
+                        {#                                </li> #}
+                        {#                            {% endif %} #}
+                        {#                        {% endif %} #}
+                        {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+                            {% if royaltiesp == 1 %}
+                                <li class="nav-item has-treeview">
+                                    <a href="{{ path('app_solicitar_pago_royal_acumulado_index') }}"
+                                       class="nav-link active">
+                                        <i class="nav-icon fas fa-tree"></i>
+                                        <p>
+                                            Pago Royalties Acumulados
+                                        </p>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item has-treeview">
+                                    <a href="{{ path('app_solicitar_pago_royal_acumulado_index') }}" class="nav-link">
+                                        <i class="nav-icon fas fa-tree"></i>
+                                        <p>
+                                            Pago Royalties Acumulados
+                                        </p>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endif %}
+                        {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+                            {% if servicioacum == 1 %}
+                                <li class="nav-item has-treeview">
+                                    <a href="{{ path('app_solicitar_pago_royal_acumulado_servicio_index') }}"
+                                       class="nav-link active">
+                                        <i class="nav-icon fas fa-tree"></i>
+                                        <p>
+                                            Royalties Acumulados por Servicio
+                                        </p>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item has-treeview">
+                                    <a href="{{ path('app_solicitar_pago_royal_acumulado_servicio_index') }}"
+                                       class="nav-link">
+                                        <i class="nav-icon fas fa-tree"></i>
+                                        <p>
+                                            Royalties Acumulados por Servicio
+                                        </p>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endif %}
+                        {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+                            {% if ventas == 1 %}
+                                <li class="nav-item has-treeview">
+                                    <a href="{{ path('app_ventas') }}" class="nav-link active">
+                                        <i class="nav-icon fas fa-shopping-cart"></i>
+                                        <p>
+                                            Mis Ventas
+                                        </p>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item has-treeview">
+                                    <a href="{{ path('app_ventas') }}" class="nav-link">
+                                        <i class="nav-icon fas fa-shopping-cart"></i>
+                                        <p>
+                                            Mis Ventas
+                                        </p>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endif %}
+                        {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+                            {% if recogida == 1 %}
+                                <li class="nav-item">
+                                    <a href="{{ path('app_solicitar_recogida_index') }}" class="nav-link active">
+                                        <i class="nav-icon fas fas fa-paperclip"></i>
+                                        <p>
+                                            Solicitudes de Recogidas
+                                        </p>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="{{ path('app_solicitar_recogida_index') }}" class="nav-link">
+                                        <i class="nav-icon fas fas fa-paperclip"></i>
+                                        <p>
+                                            Solicitudes de Recogidas
+                                        </p>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endif %}
+                        {% if is_granted('ROLE_ADMIN') %}
+                            {% if usuar == 1 %}
+                                <li class="nav-item">
+                                    <a href="{{ path('app_user_index') }}" class="nav-link active">
+                                        <i class="nav-icon fas fa-users"></i>
+                                        <p>
+                                            Gestionar Usuarios
+                                        </p>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="{{ path('app_user_index') }}" class="nav-link">
+                                        <i class="nav-icon fas fa-users"></i>
+                                        <p>
+                                            Gestionar Usuarios
+                                        </p>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endif %}
+                        {% if is_granted('ROLE_ADMIN') %}
+                            {% if product == 1 %}
+                                <li class="nav-item has-treeview">
+                                    <a href="{{ path('app_producto_index') }}" class="nav-link active">
+                                        <i class="nav-icon fas fa-copy"></i>
+                                        <p>
+                                            Gestionar Productos
+                                        </p>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item has-treeview">
+                                    <a href="{{ path('app_producto_index') }}" class="nav-link">
+                                        <i class="nav-icon fas fa-copy"></i>
+                                        <p>
+                                            Gestionar Productos
+                                        </p>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endif %}
+                        {% if is_granted('ROLE_ADMIN') %}
+                            {% if service == 1 %}
+                                <li class="nav-item has-treeview">
+                                    <a href="{{ path('app_servicio_index') }}" class="nav-link active">
+                                        <i class="nav-icon fas fa-wrench"></i>
+                                        <p>
+                                            Gestionar Servicios
+                                        </p>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item has-treeview">
+                                    <a href="{{ path('app_servicio_index') }}" class="nav-link">
+                                        <i class="nav-icon fas fa-wrench"></i>
+                                        <p>
+                                            Gestionar Servicios
+                                        </p>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endif %}
+                        {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+                            {% if buy == 1 %}
+                                <li class="nav-item has-treeview">
+                                    <a href="{{ path('app_metodo_de_pago') }}" class="nav-link active">
+                                        <i class="nav-icon fa fa-credit-card"></i>
+                                        <p>
+                                            Gestionar Forma de Pago
+                                        </p>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item has-treeview">
+                                    <a href="{{ path('app_metodo_de_pago') }}" class="nav-link">
+                                        <i class="nav-icon fa fa-credit-card"></i>
+                                        <p>
+                                            Gestionar Forma de Pago
+                                        </p>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endif %}
+                        {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+                            {% if asignar == 1 %}
+                                <li class="nav-item has-treeview">
+                                    <a href="{{ path('app_asignar_producto') }}" class="nav-link active">
+                                        <i class="nav-icon fa fa-credit-card"></i>
+                                        <p>
+                                            Listado de Productos
+                                        </p>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item has-treeview">
+                                    <a href="{{ path('app_asignar_producto') }}" class="nav-link">
+                                        <i class="nav-icon fa fa-credit-card"></i>
+                                        <p>
+                                            Listado de Productos Asignados
+                                        </p>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endif %}
+
+                        {% if is_granted('ROLE_ADMIN') %}
+                            {% if vp == 1 %}
+                                <li class="nav-item has-treeview">
+                                    <a href="{{ path('app_venta_productos_index') }}" class="nav-link active">
+                                        <i class="nav-icon fas fa-table"></i>
+                                        <p>
+                                            Gestionar Venta por Producto
+                                        </p>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item has-treeview">
+                                    <a href="{{ path('app_venta_productos_index') }}" class="nav-link">
+                                        <i class="nav-icon fas fa-table"></i>
+                                        <p>
+                                            Gestionar Venta por Producto
+                                        </p>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endif %}
+                        {% if is_granted('ROLE_ADMIN') %}
+                            {% if vs == 1 %}
+                                <li class="nav-item has-treeview">
+                                    <a href="{{ path('app_venta_servicios_index') }}" class="nav-link active">
+                                        <i class="nav-icon fas fa-table"></i>
+                                        <p>
+                                            Gestionar Venta por Servicio
+                                        </p>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item has-treeview">
+                                    <a href="{{ path('app_venta_servicios_index') }}" class="nav-link">
+                                        <i class="nav-icon fas fa-table"></i>
+                                        <p>
+                                            Gestionar Venta por Servicio
+                                        </p>
+                                    </a>
+                                </li>
+                            {% endif %}
+>>>>>>> Stashed changes
                         {% endif %}
                     </ul>
                 </nav>
@@ -389,6 +754,7 @@
             <!-- /.sidebar -->
         </aside>
         {% block page %}
+<<<<<<< Updated upstream
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
 
@@ -1310,6 +1676,9 @@
                 <!-- /.content -->
             </div>
             <!-- /.content-wrapper -->
+=======
+
+>>>>>>> Stashed changes
         {% endblock %}
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
@@ -1319,12 +1688,17 @@
 
         <!-- Main Footer -->
         <footer class="main-footer">
+<<<<<<< Updated upstream
             <strong>Copyright &copy; 2021 </strong> Todos los Derechos Reservados.
+=======
+            <strong>Copyright &copy; 2022 </strong> Todos los Derechos Reservados.
+>>>>>>> Stashed changes
         </footer>
     </div>
     <!-- ./wrapper -->
     </body>
 {% endblock %}
+<<<<<<< Updated upstream
 
 
 </html>
@@ -1334,3 +1708,6 @@
 
 
 
+=======
+</html>
+>>>>>>> Stashed changes

@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Westerunion{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h3>Westerunion</h3>
+                        </div>
+                    </div>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ westerunion.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Nombre</th>
+                            <td>{{ westerunion.nombre }}</td>
+                        </tr>
+                        <tr>
+                            <th>Apellido Paterno</th>
+                            <td>{{ westerunion.apellidoPaterno }}</td>
+                        </tr>
+                        <tr>
+                            <th>Apellido Materno</th>
+                            <td>{{ westerunion.apellidoMaterno }}</td>
+                        </tr>
+                        <tr>
+                            <th>Correo</th>
+                            <td>{{ westerunion.correo }}</td>
+                        </tr>
+                        <tr>
+                            <th>Ciudad</th>
+                            <td>{{ westerunion.ciudad }}</td>
+                        </tr>
+                        <tr>
+                            <th>Numero de Movil</th>
+                            <td>{{ westerunion.numeromovil }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div style="padding: 20px">
+                        <a class="btn btn-danger" style="float: left" href="{{ path('app_westerunion_index') }}">Regresar</a>
+
+                        <a class="btn btn-success" style="float: right"
+                           href="{{ path('app_westerunion_edit', {'id': westerunion.id}) }}">Editar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

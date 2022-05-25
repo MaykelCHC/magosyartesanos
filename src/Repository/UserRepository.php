@@ -12,6 +12,11 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 
 /**
+<<<<<<< Updated upstream
+=======
+ * @extends ServiceEntityRepository<User>
+ *
+>>>>>>> Stashed changes
  * @method User|null find($id, $lockMode = null, $lockVersion = null)
  * @method User|null findOneBy(array $criteria, array $orderBy = null)
  * @method User[]    findAll()
@@ -78,6 +83,10 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     /**
      * Devuelve el total de usuarios registrados
      *
+<<<<<<< Updated upstream
+=======
+     * @param string $correo
+>>>>>>> Stashed changes
      * @return array
      */
     public function nombreUsuarioporEmail(string $correo): array
@@ -90,6 +99,73 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->getResult();
     }
 
+<<<<<<< Updated upstream
+=======
+    /**
+     * Devuelve un ID dado un Correo
+     *
+     * @param string $correo
+     * @return int
+     */
+    public function obtenerIDdadoEmail(string $correo)
+    {
+        return $this->createQueryBuilder('u')
+            ->select('u.id')
+            ->andWhere('u.email = :val')
+            ->setParameter('val', $correo)
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * Devuelve un Rol dado un Correo
+     *
+     * @param string $correo
+     * @return array
+     */
+    public function obtenerRoldadoEmail(string $correo): array
+    {
+        return $this->createQueryBuilder('u')
+            ->select('u.roles')
+            ->andWhere('u.email = :val')
+            ->setParameter('val', $correo)
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * Devuelve el total de usuarios registrados
+     *
+     * @param string $correo
+     * @return int
+     */
+    public function cantidadUserporEmail(string $correo): int
+    {
+
+        return count($this->createQueryBuilder('u')
+            ->andWhere('u.email =:val')
+            ->setParameter('val', $correo)
+            ->getQuery()
+            ->getResult());
+    }
+
+    /**
+     * Devuelve los usuarios asignados dado un producto
+     *
+     * @param string $producid
+     * @return array
+     */
+    public function usuariosasignadosproduct(string $producid): array
+    {
+        return $this->createQueryBuilder('u')
+            ->select('u.nombre')
+            ->join('u.product', 'p')
+            ->where('p.nombre = :user_id')
+            ->setParameter('user_id', $producid)
+            ->getQuery()
+            ->getResult();
+    }
+>>>>>>> Stashed changes
 
 
     // /**

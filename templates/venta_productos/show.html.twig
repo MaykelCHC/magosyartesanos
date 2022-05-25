@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Venta Productos{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h3>Venta Productos</h3>
+                        </div>
+                    </div>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ venta_producto.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Fecha</th>
+                            <td>{{ venta_producto.fecha ? venta_producto.fecha|date('Y-m-d') : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Codigo</th>
+                            <td>{{ venta_producto.codigo }}</td>
+                        </tr>
+                        <tr>
+                            <th>Valor de Venta</th>
+                            <td>{{ venta_producto.valordeVenta }}</td>
+                        </tr>
+                        <tr>
+                            <th>Royalties</th>
+                            <td>{{ venta_producto.royaltie }}</td>
+                        </tr>
+                        <tr>
+                            <th>Productos</th>
+                            <td>{{ venta_producto.listadoproducto ? venta_producto.listadoproducto|join(', ') : '' }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div style="padding: 20px">
+                        <a class="btn btn-danger" style="float: left" href="{{ path('app_venta_productos_index') }}">Regresar</a>
+
+                        <a class="btn btn-success" style="float: right"
+                           href="{{ path('app_venta_productos_edit', {'id': venta_producto.id}) }}">Editar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

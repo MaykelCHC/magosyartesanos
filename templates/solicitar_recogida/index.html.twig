@@ -1,6 +1,10 @@
 {% extends 'base.html.twig' %}
 
+<<<<<<< Updated upstream
 {% block title %}Solicitar de Recogida{% endblock %}
+=======
+{% block title %}Solicitar Recogida{% endblock %}
+>>>>>>> Stashed changes
 
 {% block page %}
     <!-- Content Wrapper. Contains page content -->
@@ -11,25 +15,44 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="card-title">
+<<<<<<< Updated upstream
                             <h3>Solicitudes de Recogida</h3>
+=======
+                            <h1>Listado de Solicitudes Recogidas</h1>
+>>>>>>> Stashed changes
                         </div>
                     </div>
                     <div class="col-md-3">
                         <a href="{{ path('app_solicitar_recogida_new') }}">
+<<<<<<< Updated upstream
                             <button type="button" class="btn btn-block bg-gradient-success">Crear Solicitud de
                                 Recogida
                             </button>
                         </a>
                     </div>
 
+=======
+                            <button type="button" class="btn btn-block bg-gradient-success"><i
+                                        class="fa fa-user-plus"></i> Crear Nueva Solicitud
+                            </button>
+                        </a>
+                    </div>
+>>>>>>> Stashed changes
                     <table class="table">
                         <thead>
                         <tr>
                             <th>Id</th>
+<<<<<<< Updated upstream
                             <th>Nombre de Empresa</th>
                             <th>Fecha de Recogida</th>
                             <th>Hora de Recogida</th>
                             <th>Numero de Env&iacute;o</th>
+=======
+                            <th>Nombre</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Numero de envio</th>
+>>>>>>> Stashed changes
                             <th>Estado</th>
                             <th>Acciones</th>
                         </tr>
@@ -38,6 +61,7 @@
                         {% for solicitar_recogida in solicitar_recogidas %}
                             <tr>
                                 <td>{{ solicitar_recogida.id }}</td>
+<<<<<<< Updated upstream
                                 <td>{{ solicitar_recogida.nombreempresa }}</td>
                                 <td>{{ solicitar_recogida.fecharecogida }}</td>
                                 <td>{{ solicitar_recogida.horarecogida }}</td>
@@ -46,6 +70,46 @@
                                 <td>
                                     <a href="{{ path('app_solicitar_recogida_show', {'id': solicitar_recogida.id}) }}">show</a>
                                     <a href="{{ path('app_solicitar_recogida_edit', {'id': solicitar_recogida.id}) }}">edit</a>
+=======
+                                <td>{{ solicitar_recogida.nombre }}</td>
+                                <td>{{ solicitar_recogida.fecha ? solicitar_recogida.fecha|date('Y-m-d') : '' }}</td>
+                                <td>{{ solicitar_recogida.hora ? solicitar_recogida.hora|date('H:i:s') : '' }}</td>
+                                <td>{{ solicitar_recogida.numeroenvio }}</td>
+                                <td>{{ solicitar_recogida.estado }}</td>
+                                <td width="180">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <a href="{{ path('app_solicitar_recogida_show', {'id': solicitar_recogida.id}) }}">
+                                                <button class="btn btn-block btn-info" data-toggle="tooltip"
+                                                        title="ver"><i
+                                                            class="fas fa-info"></i>
+                                                </button>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-4">
+
+                                            <a href="{{ path('app_solicitar_recogida_edit', {'id': solicitar_recogida.id}) }}">
+                                                <button class="btn btn-block btn-success" data-toggle="tooltip"
+                                                        title="Editar"><i
+                                                            class="fas fa-edit"></i>
+                                                </button>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <form method="post"
+                                                  action="{{ path('app_solicitar_recogida_delete', {'id': solicitar_recogida.id}) }}"
+                                                  onsubmit="return confirm('Está segur@ que desea eliminar esta solicitud?');">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="_token"
+                                                       value="{{ csrf_token('delete' ~ solicitar_recogida.id) }}">
+                                                <button class="btn btn-block btn-danger" data-toggle="tooltip"
+                                                        title="Eliminar"><i
+                                                            class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+>>>>>>> Stashed changes
                                 </td>
                             </tr>
                         {% else %}

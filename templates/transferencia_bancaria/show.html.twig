@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Transferencia Bancaria{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h3>Transferencia Bancaria</h3>
+                        </div>
+                    </div>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <td>{{ transferencia_bancarium.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Nombre del Banco</th>
+                            <td>{{ transferencia_bancarium.nombrebanco }}</td>
+                        </tr>
+                        <tr>
+                            <th>Nombre del Titular</th>
+                            <td>{{ transferencia_bancarium.nombretitular }}</td>
+                        </tr>
+                        <tr>
+                            <th>Numero de Cuenta</th>
+                            <td>{{ transferencia_bancarium.numerocuenta }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div style="padding: 20px">
+                        <a class="btn btn-danger" style="float: left"
+                           href="{{ path('app_transferencia_bancaria_index') }}">Regresar</a>
+
+                        <a class="btn btn-success" style="float: right"
+                           href="{{ path('app_transferencia_bancaria_edit', {'id': transferencia_bancarium.id}) }}">Editar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

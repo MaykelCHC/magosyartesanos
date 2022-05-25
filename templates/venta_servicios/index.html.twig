@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Venta Servicios{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h3>Venta Servicios</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="{{ path('app_venta_servicios_new') }}">
+                            <button type="button" class="btn btn-block bg-gradient-success"><i
+                                        class="fa fa-user-plus"></i> Nueva Venta de Servicio
+                            </button>
+                        </a>
+                    </div>
+                    <table class="table">
+                        <thead class="text-center">
+                        <tr>
+                            <th>Fecha</th>
+                            <th>C&oacute;digo de Venta</th>
+                            <th>Usuario</th>
+                            <th>Concepto</th>
+                            <th>Valor</th>
+                            <th>Royalties Comisi&oacute;n</th>
+                            <th>Documento</th>
+                            <th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody class="text-center">
+                        {% for venta_servicio in venta_servicios %}
+                            <tr>
+                                <td>{{ venta_servicio.fecha ? venta_servicio.fecha|date('Y-m-d') : '' }}</td>
+                                <td>{{ venta_servicio.codigo }}</td>
+                                <td>{{ venta_servicio.usuarioid }}</td>
+                                <td><textarea rows="3" disabled
+                                              maxlength="1000">{{ venta_servicio.concepto }}</textarea></td>
+                                <td>{{ venta_servicio.valor }}</td>
+                                <td>{{ venta_servicio.comisionRoyalties }}</td>
+                                <td><a href="{{ asset('uploads/' ~ venta_servicio.documento) }}" target="_blank">Ver
+                                        Documento</a></td>
+                                <td width="180">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <a href="{{ path('app_venta_servicios_show', {'id': venta_servicio.id}) }}">
+                                                <button class="btn btn-block btn-info" data-toggle="tooltip"
+                                                        title="ver"><i
+                                                            class="fas fa-info"></i>
+                                                </button>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-4">
+
+                                            <a href="{{ path('app_venta_servicios_edit', {'id': venta_servicio.id}) }}">
+                                                <button class="btn btn-block btn-success" data-toggle="tooltip"
+                                                        title="Editar"><i
+                                                            class="fas fa-edit"></i>
+                                                </button>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <form method="post"
+                                                  action="{{ path('app_venta_servicios_delete', {'id': venta_servicio.id}) }}"
+                                                  onsubmit="return confirm('Está segur@ que desea eliminar esta venta servicio?');">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="_token"
+                                                       value="{{ csrf_token('delete' ~ venta_servicio.id) }}">
+                                                <button class="btn btn-block btn-danger" data-toggle="tooltip"
+                                                        title="Eliminar"><i
+                                                            class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="7">No se encontraron registros</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

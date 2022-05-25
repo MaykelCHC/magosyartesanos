@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bizum{% endblock %}
+
+{% block page %}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <h3>Bizum</h3>
+                    </div>
+                </div>
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th>ID</th>
+                        <td>{{ bizum.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Telefono</th>
+                        <td>{{ bizum.telefono }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div style="padding: 20px">
+                    <a class="btn btn-danger" style="float: left" href="{{ path('app_bizum_index') }}">Regresar</a>
+
+                    <a class="btn btn-success" style="float: right"
+                       href="{{ path('app_bizum_edit', {'id': bizum.id}) }}">Editar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                {% endblock %}

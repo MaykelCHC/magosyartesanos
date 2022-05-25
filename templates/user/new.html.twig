@@ -2,6 +2,39 @@
 
 {% block title %}Nuevo Usuario{% endblock %}
 
+<<<<<<< Updated upstream
+=======
+{% block pagescript %}
+    {% if mensaje is not null %}
+        {% if mensaje == 1 %}
+            <script type="text/javascript">
+                jQuery(document).ready(function ($) {
+                    toastr["error"]("Ese correo ya esta registrado en el sistema", "Notification ")
+
+                    toastr.options = {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": false,
+                        "progressBar": true,
+                        "positionClass": "toast-top-right",
+                        "preventDuplicates": true,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    }
+                });
+            </script>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+>>>>>>> Stashed changes
 {% block body %}
     <body class="hold-transition register-page">
     <div class="register-box text-center">

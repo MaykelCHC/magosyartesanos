@@ -23,6 +23,7 @@
                     </div>
 
                     <table class="table">
+<<<<<<< Updated upstream
                         <thead>
                         <tr>
                             <th>ID</th>
@@ -32,12 +33,21 @@
                             <th>Tipo de Moneda</th>
                             <th>I.V.A.</th>
                             <th>IDD</th>
+=======
+                        <thead class="text-center">
+                        <tr>
+                            <th>I.D.</th>
+                            <th>Nombre</th>
+                            <th>Imagen del Producto</th>
+                            <th>Usuarios Asignados</th>
+>>>>>>> Stashed changes
                             <th>Stock</th>
                             <th class="text-center">Acciones</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for producto in productos %}
+<<<<<<< Updated upstream
                             <tr>
                                 <td>{{ producto.id }}</td>
                                 <td>{{ producto.nombre }}</td>
@@ -46,11 +56,23 @@
                                 <td>{{ producto.tipomoneda }}</td>
                                 <td>{{ producto.iva }}</td>
                                 <td>{{ producto.IDD }}</td>
+=======
+                            <tr class="text-center">
+                                <td>{{ producto.IDD }}</td>
+                                <td>{{ producto.nombre }}</td>
+                                <td><img width="80" height="80" src="{{ asset('uploads/' ~ producto.imagen) }}"
+                                         alt="Foto Producto"></td>
+                                <td>{{ producto.usuarioid ? producto.usuarioid|join(', ') : '' }}</td>
+>>>>>>> Stashed changes
                                 <td>{{ producto.Stock }}</td>
                                 <td width="180">
                                     <div class="row">
                                         <div class="col-sm-4">
+<<<<<<< Updated upstream
                                             <a href="{{ path('app_producto_show', {'id': user.id}) }}">
+=======
+                                            <a href="{{ path('app_producto_show', {'id': producto.id}) }}">
+>>>>>>> Stashed changes
                                                 <button class="btn btn-block btn-info" data-toggle="tooltip"
                                                         title="ver"><i
                                                             class="fas fa-info"></i>
@@ -59,7 +81,11 @@
                                         </div>
                                         <div class="col-sm-4">
 
+<<<<<<< Updated upstream
                                             <a href="{{ path('app_producto_edit', {'id': user.id}) }}">
+=======
+                                            <a href="{{ path('app_producto_edit', {'id': producto.id}) }}">
+>>>>>>> Stashed changes
                                                 <button class="btn btn-block btn-success" data-toggle="tooltip"
                                                         title="Editar"><i
                                                             class="fas fa-edit"></i>
@@ -68,11 +94,19 @@
                                         </div>
                                         <div class="col-sm-4">
                                             <form method="post"
+<<<<<<< Updated upstream
                                                   action="{{ path('app_producto_delete', {'id': user.id}) }}"
                                                   onsubmit="return confirm('Está segur@ que desea eliminar este usuario?');">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token"
                                                        value="{{ csrf_token('delete' ~ user.id) }}">
+=======
+                                                  action="{{ path('app_producto_delete', {'id': producto.id}) }}"
+                                                  onsubmit="return confirm('Está segur@ que desea eliminar este producto?');">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="_token"
+                                                       value="{{ csrf_token('delete' ~ producto.id) }}">
+>>>>>>> Stashed changes
                                                 <button class="btn btn-block btn-danger" data-toggle="tooltip"
                                                         title="Eliminar"><i
                                                             class="fas fa-trash"></i>

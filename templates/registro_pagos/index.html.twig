@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registro de Pagos{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h3>Registro de Pagos de Royalties Acumulados</h3>
+                        </div>
+
+                    </div>
+
+                    <table class="table">
+                        <thead class="text-center">
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Royalties Acumulados</th>
+                            <th>Royalties Pagados</th>
+                            <th>Saldo Royalties</th>
+                            <th>M&eacute;todo de Pago</th>
+                        </tr>
+                        </thead>
+                        <tbody class="text-center">
+                        {% for solicitar_pago_royal_acumulado in solicitar_pago_royal_acumulados %}
+                            <tr>
+                                <td>{{ solicitar_pago_royal_acumulado.fecha ? solicitar_pago_royal_acumulado.fecha|date('Y-m-d') : '' }}</td>
+                                <td>{{ royalacum }}</td>
+                                <td>{{ solicitar_pago_royal_acumulado.royaltiespagar }}</td>
+                                <td></td>
+                                <td>{{ solicitar_pago_royal_acumulado.metododepago }}</td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="5">No se encontraron registros</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

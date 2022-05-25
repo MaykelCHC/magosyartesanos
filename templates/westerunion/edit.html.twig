@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar Westerunion{% endblock %}
+
+{% block body %}
+    <body class="hold-transition register-page">
+    <div class="register-box text-center">
+        <div class="card" style="width: 435px;">
+            <div class="card-body">
+                <h3>Editar Westerunion</h3>
+                <br>
+                {{ include('westerunion/_form.html.twig', {'button_label': 'Update'}) }}
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}

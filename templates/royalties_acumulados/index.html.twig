@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Royalties Acumulados{% endblock %}
+
+{% block page %}
+    <div class="content-wrapper" style="min-height: 256px;">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-8 col-12">
+                            <h4>Royalties Acumulados</h4>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-4 col-12 float-right">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-warning"><i class="fas fa-money-bill"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Total de Royalties Acumulados</span>
+                                    <span class="info-box-number">€ {{ ventasmensual }}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- /.card-header -->
+                                <div class="card-body table-responsive p-0">
+                                    <table class="table table-hover text-nowrap">
+                                        <thead class="text-center">
+                                        <tr>
+                                            <th>I.D.</th>
+                                            <th>Nombre</th>
+                                            <th>Fecha</th>
+                                            <th>R.A.</th>
+                                            <th>€</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody class="text-center">
+                                        <tr>
+                                            <td>183</td>
+                                            <td>John Doe</td>
+                                            <td>11-7-2014</td>
+                                            <td>R.A.</td>
+                                            <td>256</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}

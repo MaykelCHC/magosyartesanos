@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Restablecer su contraseña{% endblock %}
+
+{% block body %}
+    <body class="hold-transition register-page">
+    <div class="register-box text-center">
+        <div class="card" style="width: 435px;">
+            <div class="card-body">
+                {% for flash_error in app.flashes('reset_password_error') %}
+                    <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+                {% endfor %}
+                <h3>Restablecer su contraseña</h3>
+                <br>
+                {{ form_start(requestForm) }}
+                {{ form_row(requestForm.email) }}
+                <div style="margin-top: 10px;margin-bottom: 10px">
+                    <small>
+                        Ingrese su dirección de correo electrónico y le enviaremos<br/> un enlace para restablecer su
+                        contraseña.
+                    </small>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Enviar Correo</button>
+                <a href="{{ path('app_login') }}">
+                    <button type="button" class="btn btn-info">Login</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    </body>
+    {{ form_end(requestForm) }}
+{% endblock %}

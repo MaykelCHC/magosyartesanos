@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nuevo Pago Royal Acumulado{% endblock %}
+
+{% block body %}
+    <body class="hold-transition register-page">
+    <div class="register-box text-center">
+        <div class="card" style="width: 435px;">
+            <div class="card-body">
+                <h3>Crear Nuevo Pago Royal Acumulado</h3>
+                <br>
+                {{ include('solicitar_pago_royal_acumulado/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}

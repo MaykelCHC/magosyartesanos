@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar Venta Productos{% endblock %}
+
+{% block body %}
+    <body class="hold-transition register-page">
+    <div class="register-box text-center">
+        <div class="card" style="width: 435px;">
+            <div class="card-body">
+                <h3>Editar Venta Productos</h3>
+                <br>
+                {{ include('venta_productos/_form.html.twig', {'button_label': 'Update'}) }}
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}
+
+{% block pagescript %}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js',{callback: 'fos.Router.setData'}) }}"></script>
+    <script src="{{ asset('dist/js/ajaxcall.js') }}"></script>
+{% endblock %}

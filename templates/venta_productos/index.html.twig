@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Venta Productos{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h3>Venta Productos</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="{{ path('app_venta_productos_new') }}">
+                            <button type="button" class="btn btn-block bg-gradient-success"><i
+                                        class="fa fa-user-plus"></i> Nueva Venta de Producto
+                            </button>
+                        </a>
+                    </div>
+                    <table class="table">
+                        <thead class="text-center">
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Codigo</th>
+                            <th>Productos</th>
+                            <th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody class="text-center">
+                        {% for venta_producto in venta_productos %}
+                            <tr>
+                                <td>{{ venta_producto.fecha ? venta_producto.fecha|date('Y-m-d') : '' }}</td>
+                                <td>{{ venta_producto.codigo }}</td>
+                                <td>{{ venta_producto.listadoproducto ? venta_producto.listadoproducto|join(', ') : '' }}</td>
+                                <td width="180">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <a href="{{ path('app_venta_productos_show', {'id': venta_producto.id}) }}">
+                                                <button class="btn btn-block btn-info" data-toggle="tooltip"
+                                                        title="ver"><i
+                                                            class="fas fa-info"></i>
+                                                </button>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-4">
+
+                                            <a href="{{ path('app_venta_productos_edit', {'id': venta_producto.id}) }}">
+                                                <button class="btn btn-block btn-success" data-toggle="tooltip"
+                                                        title="Editar"><i
+                                                            class="fas fa-edit"></i>
+                                                </button>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <form method="post"
+                                                  action="{{ path('app_venta_productos_delete', {'id': venta_producto.id}) }}"
+                                                  onsubmit="return confirm('Está segur@ que desea eliminar esta venta producto?');">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="_token"
+                                                       value="{{ csrf_token('delete' ~ venta_producto.id) }}">
+                                                <button class="btn btn-block btn-danger" data-toggle="tooltip"
+                                                        title="Eliminar"><i
+                                                            class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="8">No se encontraron registros</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

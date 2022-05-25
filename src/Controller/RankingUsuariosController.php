@@ -4,24 +4,37 @@ namespace App\Controller;
 
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+<<<<<<< Updated upstream
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+=======
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+>>>>>>> Stashed changes
 
 class RankingUsuariosController extends AbstractController
 {
     /**
+<<<<<<< Updated upstream
      * @Route("/ranking/usuarios", name="app_ranking_usuarios")
      */
     public function index(AuthenticationUtils $authenticationUtils, UserRepository $userRepository): Response
     {
 
+=======
+     * @Route("/ranking_usuarios", name="app_ranking_usuarios")
+     */
+    public function index(UserRepository $userRepository): Response
+    {
+>>>>>>> Stashed changes
         /**
          * Asegurarse que el usuario esta autenticado
          */
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
+<<<<<<< Updated upstream
         $lastUsername = $authenticationUtils->getLastUsername();
         $nombre = $userRepository->nombreUsuarioporEmail($lastUsername);
 
@@ -77,6 +90,11 @@ class RankingUsuariosController extends AbstractController
 
         return $this->render('ranking_usuarios/index.html.twig', [
             'users' => $info,
+=======
+
+        return $this->render('ranking_usuarios/index.html.twig', [
+            'users' => $userRepository->findAll(),
+>>>>>>> Stashed changes
             'resumen' => 0,
             'ranking' => 1,
             'historial' => 0,
@@ -91,6 +109,12 @@ class RankingUsuariosController extends AbstractController
             'buy' => 0,
             'vp' => 0,
             'vs' => 0,
+<<<<<<< Updated upstream
         ]);
+=======
+            'royaltiesp' => 0,
+        ]);
+
+>>>>>>> Stashed changes
     }
 }

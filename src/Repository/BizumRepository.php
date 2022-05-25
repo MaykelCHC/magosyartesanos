@@ -9,6 +9,11 @@ use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
+<<<<<<< Updated upstream
+=======
+ * @extends ServiceEntityRepository<Bizum>
+ *
+>>>>>>> Stashed changes
  * @method Bizum|null find($id, $lockMode = null, $lockVersion = null)
  * @method Bizum|null findOneBy(array $criteria, array $orderBy = null)
  * @method Bizum[]    findAll()

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Productos Asignados{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h3>Productos Asignados</h3>
+                        </div>
+                    </div>
+                    <table class="table">
+                        <thead class="text-center">
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>ID</th>
+                            <th>Stock</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for producto in productos %}
+                            <tr class="text-center">
+                                <td><img width="80" height="80" src="{{ asset('uploads/' ~ producto.imagen) }}"
+                                         alt="Foto Producto"></td>
+                                <td>{{ producto.nombre }}</td>
+                                <td>{{ producto.IDD }}</td>
+                                <td>{{ producto.Stock }}</td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="9">No se encontraron registros asignados</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

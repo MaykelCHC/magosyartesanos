@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Servicio{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h3>Servicio</h3>
+                        </div>
+                    </div>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <td>{{ servicio.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Nombre</th>
+                            <td>{{ servicio.nombre }}</td>
+                        </tr>
+                        <tr>
+                            <th>Imagen</th>
+                            <td>{{ servicio.imagen }}</td>
+                        </tr>
+                        <tr>
+                            <th>Beneficio por Venta</th>
+                            <td>{{ servicio.beneficioxventa }}</td>
+                        </tr>
+                        <tr>
+                            <th>Tipo de Moneda</th>
+                            <td>{{ servicio.tipodmoneda }}</td>
+                        </tr>
+                        <tr>
+                            <th>I.V.A.</th>
+                            <td>{{ servicio.iv }}</td>
+                        </tr>
+                        <tr>
+                            <th>Concepto</th>
+                            <td>{{ servicio.concepto }}</td>
+                        </tr>
+                        <tr>
+                            <th>Descripci&oacute;n</th>
+                            <td>{{ servicio.descripcion }}</td>
+                        </tr>
+                        <tr>
+                            <th>Documento</th>
+                            <td>{{ servicio.documento }}</td>
+                        </tr>
+                        <tr>
+                            <th>Usuario Asignado</th>
+                            <td>{{ servicio.usuarioid.nombre }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div style="padding: 20px">
+                        <a class="btn btn-danger" style="float: left"
+                           href="{{ path('app_servicio_index') }}">Regresar</a>
+
+                        <a class="btn btn-success" style="float: right"
+                           href="{{ path('app_servicio_edit', {'id': servicio.id}) }}">Editar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

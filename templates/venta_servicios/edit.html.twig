@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar Venta Servicios{% endblock %}
+
+{% block body %}
+    <body class="hold-transition register-page">
+    <div class="register-box text-center">
+        <div class="card" style="width: 435px;">
+            <div class="card-body">
+                <h3>Editar Venta Servicios</h3>
+                <br>
+                {{ include('venta_servicios/_form.html.twig', {'button_label': 'Update'}) }}
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}

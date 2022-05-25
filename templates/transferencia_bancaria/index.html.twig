@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Transferencia Bancaria{% endblock %}
+
+{% block page %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h3>Transferencia Bancaria</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="{{ path('app_transferencia_bancaria_new') }}">
+                            <button type="button" class="btn btn-block bg-gradient-success"><i
+                                        class="fa fa-user-plus"></i> Crear Cuenta Transferencia Bancaria
+                            </button>
+                        </a>
+                    </div>
+                    <table class="table">
+                        <thead class="text-center">
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre del Banco</th>
+                            <th>Nombre del Titular</th>
+                            <th>Numero de Cuenta</th>
+                            <th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for transferencia_bancarium in transferencia_bancarias %}
+                            <tr>
+                                <td>{{ transferencia_bancarium.id }}</td>
+                                <td>{{ transferencia_bancarium.nombrebanco }}</td>
+                                <td>{{ transferencia_bancarium.nombretitular }}</td>
+                                <td>{{ transferencia_bancarium.numerocuenta }}</td>
+                                <td width="180">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <a href="{{ path('app_transferencia_bancaria_show', {'id': transferencia_bancarium.id}) }}">
+                                                <button class="btn btn-block btn-info" data-toggle="tooltip"
+                                                        title="ver"><i
+                                                            class="fas fa-info"></i>
+                                                </button>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-4">
+
+                                            <a href="{{ path('app_transferencia_bancaria_edit', {'id': transferencia_bancarium.id}) }}">
+                                                <button class="btn btn-block btn-success" data-toggle="tooltip"
+                                                        title="Editar"><i
+                                                            class="fas fa-edit"></i>
+                                                </button>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <form method="post"
+                                                  action="{{ path('app_transferencia_bancaria_delete', {'id': transferencia_bancarium.id}) }}"
+                                                  onsubmit="return confirm('Está segur@ que desea eliminar esta cuenta?');">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="_token"
+                                                       value="{{ csrf_token('delete' ~ transferencia_bancarium.id) }}">
+                                                <button class="btn btn-block btn-danger" data-toggle="tooltip"
+                                                        title="Eliminar"><i
+                                                            class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="5">No se encontraron registros</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

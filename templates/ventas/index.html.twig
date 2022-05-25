@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 
+<<<<<<< Updated upstream
 {% block title %}Ventas{% endblock %}
 
 {% block pagescript %}
@@ -174,4 +175,176 @@
         </div>
         <!-- /.modal-dialog -->
     </div>
+=======
+{% block title %}Mis Ventas{% endblock %}
+
+{% block page %}
+    <div class="content-wrapper" style="min-height: 256px;">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 col-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Ventas Diarias</span>
+                                    <span class="info-box-number">{{ ventasdiarias }}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-4 col-sm-6 col-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Ventas Semanales</span>
+                                    <span class="info-box-number">{{ ventassemanales }}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-4 col-sm-6 col-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Ventas Mensuales</span>
+                                    <span class="info-box-number">{{ ventasmensual }}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <form role="form" method="post">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <!-- Date -->
+                                    <div class="form-group">
+                                        <label>Fecha Inicial:</label>
+
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i
+                                                            class="far fa-calendar-alt"></i></span>
+                                            </div>
+                                            <input id="reservationdateinicial" type="text" class="form-control"
+                                                   data-inputmask-alias="datetime"
+                                                   data-inputmask-inputformat="dd/mm/yyyy" data-mask=""
+                                                   im-insert="false">
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                    <!-- /.form group -->
+                                </div>
+                                <div class="col-sm-3">
+                                    <!-- Date -->
+                                    <div class="form-group">
+                                        <label>Fecha Final:</label>
+
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i
+                                                            class="far fa-calendar-alt"></i></span>
+                                            </div>
+                                            <input id="reservationdatefinal" type="text" class="form-control"
+                                                   data-inputmask-alias="datetime"
+                                                   data-inputmask-inputformat="dd/mm/yyyy" data-mask=""
+                                                   im-insert="false">
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                    <!-- /.form group -->
+                                </div>
+                                <div class="col-sm-2">
+                                    <!-- select -->
+                                    <div class="form-group">
+                                        <label>Orden:</label>
+                                        <select id="ordenar" class="form-control">
+                                            <option name="ASC" value="ASC">ASC</option>
+                                            <option name="DESC" value="DESC">DESC</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <!-- select -->
+                                    <div class="form-group">
+                                        <label>Paginado:</label>
+                                        <select id="paginado" class="form-control">
+                                            <option name="10" value="10">10</option>
+                                            <option name="20" value="20">20</option>
+                                            <option name="25" value="25">25</option>
+                                            <option name="50" value="50">50</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2" style="margin-top: 30px">
+                                    <button type="button" onclick="cargardatos();" class="btn btn-primary">Filtrar
+                                    </button>
+                                </div>
+                            </div>
+                            <input name="csrfmiddlewaretoken" value="token" type="hidden">
+                        </form>
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- /.card-header -->
+                                <div class="card-body table-responsive p-0">
+                                    <table class="table table-hover text-nowrap">
+                                        <thead>
+                                        <tr>
+                                            <th>Fecha</th>
+                                            <th>Codigo de Venta</th>
+                                            <th>Imagen del Producto</th>
+                                            <th>Producto</th>
+                                            <th>Royaltie Acumulado</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for ventaip in infoproductos %}
+                                            <tr>
+                                                <td>{{ ventaip.fecha ? ventaip.fecha|date('Y-m-d') : '' }}</td>
+                                                <td>{{ ventaip.codigo }}</td>
+                                                <td><img width="50" height="50"
+                                                         src="{{ asset('uploads/' ~ ventaip.imagen) }}"
+                                                         alt="Foto Producto"></td>
+                                                <td>{{ ventaip.nombre }}</td>
+                                                <td>{{ ventaip.beneficio }}</td>
+                                            </tr>
+                                        {% else %}
+                                            <tr>
+                                                <td colspan="3">No se encontraron registros</td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}
+
+{% block pagescript %}
+
+    <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js',{callback: 'fos.Router.setData'}) }}"></script>
+    <script src="{{ asset('dist/js/ajaxcall.js') }}"></script>
+>>>>>>> Stashed changes
 {% endblock %}
